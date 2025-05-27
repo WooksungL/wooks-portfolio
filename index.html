@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>나의 포트폴리오</title>
+  <title>Wooks Portflio</title>
   <style>
     body, html {
       margin: 0;
@@ -78,9 +78,65 @@
       background: white;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+    
+      .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.3); /* 투명한 검정 배경 */
+      z-index: 1000;
+      color: white;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      font-weight: 300;
+      opacity: 0.8;
+      margin-left: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-menu a {
+      color: white;
+      font-size: 0.85rem;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-menu a:hover {
+      opacity: 0.7;
+    }
+
+
   </style>
 </head>
 <body>
+
+  header class="site-header">
+  <div class="logo">wooks<span>portfolio</span></div>
+  <nav class="nav-menu">
+    <a href="#home">HOME</a>
+    <a href="#works">WORKS</a>
+    <a href="#contact">CONTACT</a>
+    <a href="#instagram">INSTAGRAM</a>
+  </nav>
+</header>
 
 <div class="hero">
   <video id="introVideo" autoplay muted loop>
