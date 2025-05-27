@@ -84,13 +84,14 @@
       top: 0;
       left: 0;
       width: 100%;
+      background: rgba(0, 0, 0, 0.3); /* ✅ 투명한 검정 */
+      color: white;
+      z-index: 1000;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.3); /* 투명한 검정 배경 */
-      z-index: 1000;
-      color: white;
+      box-sizing: border-box;
     }
 
     .logo {
@@ -102,12 +103,11 @@
     .logo span {
       font-weight: 300;
       opacity: 0.8;
-      margin-left: 2px;
     }
 
     .nav-menu {
       display: flex;
-      gap: 25px;
+      gap: 15px;
     }
 
     .nav-menu a {
@@ -128,10 +128,9 @@
 </head>
 <body>
 
-  header class="site-header">
+  <header class="site-header">
   <div class="logo">wooks<span>portfolio</span></div>
   <nav class="nav-menu">
-    <a href="#home">HOME</a>
     <a href="#works">WORKS</a>
     <a href="#contact">CONTACT</a>
     <a href="#instagram">INSTAGRAM</a>
