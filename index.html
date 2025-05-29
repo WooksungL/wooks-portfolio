@@ -119,21 +119,27 @@
 
     /* 포트폴리오 그리드 */
     .portfolio {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      column-count: 3;
+      column-gap: 30px;
       padding: 60px;
     }
 
+    .project {
+      break-inside: avoid;
+      margin-bottom: 30px;
+    }
+
     .project img {
-      width: 100%;
+      width: 150%;
+      height: auto;
       border-radius: 4px;
-      transition: transform 0.3s ease;
+      display: block;
     }
 
     .project img:hover {
       transform: scale(1.02);
     }
+
   </style>
 </head>
 <body>
@@ -173,7 +179,7 @@
   </section>
 
   <section class="portfolio" id="works">
-    <div class="project"><img src="https://github.com/WooksungL/wooks-portfolio/tree/main/image/project1/0.jpg" alt="Project 1"></div>
+    <div class="project"><img src="https://wooksungl.github.io/wooks-portfolio/image/project1/0.jpg" alt="Project 1"></div>
     <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+2" alt="Project 2"></div>
     <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+3" alt="Project 3"></div>
     <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+4" alt="Project 4"></div>
