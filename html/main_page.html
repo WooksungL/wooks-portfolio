@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wooks Portfolio</title>
+  <style>
+    /* 기본 설정 */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue';
+      background-color: #0a0a0a;
+      color: #f0f0f0;
+    }
+
+    /* 헤더 */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 60px;
+    }
+
+    .logo a {
+    color: white;
+    text-decoration: none;
+    }
+
+    .logo a:hover {
+    opacity: 0.8;
+    }
+
+    .logo {
+      color : white;
+      font-weight: bold;
+      text-decoration: none;   /* 밑줄 제거 */
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-menu a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      opacity: 1;
+    }
+
+    /* 인트로 섹션 */
+    .intro {
+      padding: 60px;
+      max-width: 800px;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .intro .date {
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    /* 필터 메뉴 */
+    .filter-menu {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      color: #888;
+    }
+
+    .filter-menu span {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .filter-menu span:hover,
+    .filter-menu .active {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* 포트폴리오 그리드 */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 60px;
+    }
+
+    .project img {
+      width: 100%;
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .project img:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo"> 
+    <a href="https://wooksungl.github.io/wooks-portfolio/" onclick="location.reload(); return false;">
+    Wooks Portflio
+    </a></div>
+    <nav class="nav-menu">
+      <a href="#works">Work</a>
+      <a href="#info">Info</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <h1>Wooks's Grid.</h1>
+    <p class="date">2019 — 2025</p>
+    <p class="description">
+      Designing beyond the visible building ideas, 
+      not just objects form is a language I design to question.
+    </p>
+    <p class="description">This is the flow of creative identity.</p>
+
+    <div class="filter-menu">
+      <span class="active">Everything.</span>
+      <span>Motion</span>
+      <span>Design</span>
+      <span>Photography</span>
+      <span>Experiments</span>
+    </div>
+  </section>
+
+  <section class="portfolio" id="works">
+    <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+1" alt="Project 1"></div>
+    <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+2" alt="Project 2"></div>
+    <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+3" alt="Project 3"></div>
+    <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+4" alt="Project 4"></div>
+  </section>
+
+</body>
+</html>
