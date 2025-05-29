@@ -226,6 +226,40 @@
       opacity: 0;
     }
 
+    .contact-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-box {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #0a0a0a;
+      padding: 8px 0;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .contact-box a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      padding: 2px 0;
+      transition: opacity 0.3s;
+    }
+
+    .contact-box a:hover {
+      opacity: 1;
+    }
+
+    .contact-box.show {
+      display: flex;
+    }
+
 
   </style>
 </head>
@@ -243,8 +277,15 @@
     <nav class="nav-menu">
       <a href="#works">Work</a>
       <a href="#info">Info</a>
-      <a href="#contact">Contact</a>
+      <div class="contact-wrapper">
+        <a href="#contact" onclick="toggleContact(); return false;">Contact</a>
+        <div class="contact-box" id="contactBox">
+          <a href="mailto:leeur0668@gmail.com?subject=Portfolio%20Inquiry">Email</a>
+          <a href="https://www.instagram.com/cre___s/" target="_blank">Instagram</a>
+        </div>
+      </div>
     </nav>
+
   </header>
 
   <section class="intro">
@@ -310,6 +351,14 @@
       window.location.assign('https://wooksungl.github.io/wooks-portfolio/intro.html');
     }
   </script>
+
+  <script>
+    function toggleContact() {
+      const box = document.getElementById("contactBox");
+      box.classList.toggle("show");
+    }
+  </script>
+
 
 </body>
 </html>
