@@ -40,21 +40,22 @@
     }
 
     .logo-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
 
-    .intro-link {
-    color: #ccc;
-    font-size: 0.8rem;
-    text-decoration: none;
-    opacity: 0.6;
-    transition: opacity 0.3s;
+    .intro-link,
+    .intro-link:visited {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      transition: opacity 0.3s;
     }
 
     .intro-link:hover {
-    opacity: 1;
+      opacity: 1;
     }
 
     .nav-menu a {
@@ -139,11 +140,12 @@
 
   <header class="site-header">
     <div class="logo-group">
-    <a href="#home" class="https://wooksungl.github.io/wooks-portfolio/intro.html">Intro</a>
-    <div class="logo">
-    <a href="https://wooksungl.github.io/wooks-portfolio/" onclick="location.reload(); return false;">
-    Wooks Portflio
-    </a></div>
+      <a href="#" class="intro-link" onclick="goToIntro(); return false;">Intro</a>
+      <div class="logo">
+        <a href="https://wooksungl.github.io/wooks-portfolio/" onclick="location.reload(); return false;">
+          Wooks Portflio
+        </a>
+      </div>
     </div>
     <nav class="nav-menu">
       <a href="#works">Work</a>
@@ -152,7 +154,7 @@
     </nav>
   </header>
 
-  <section class="intro" id="home">
+  <section class="intro">
     <h1>Wooks's Grid.</h1>
     <p class="date">2019 — 2025</p>
     <p class="description">
@@ -176,6 +178,12 @@
     <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+3" alt="Project 3"></div>
     <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+4" alt="Project 4"></div>
   </section>
+
+   <script>
+    function goToIntro() {
+      window.location.assign('https://wooksungl.github.io/wooks-portfolio/intro.html');
+    }
+  </script>
 
 </body>
 </html>
