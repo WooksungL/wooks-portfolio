@@ -94,7 +94,18 @@
       box-sizing: border-box;
     }
 
+    .logo a {
+    color: white;
+    text-decoration: none;
+    }
+
+    .logo a:hover {
+    opacity: 0.8;
+    }
+
     .logo {
+      color : white;
+      text-decoration: none;   /* 밑줄 제거 */
       font-size: 1.4rem;
       font-weight: bold;
       letter-spacing: -0.5px;
@@ -126,10 +137,14 @@
 
   </style>
 </head>
-<body>
 
+<body>
   <header class="site-header">
-  <div class="logo">wooks<span>portfolio</span></div>
+  <div class="logo">
+  <a href="https://wooksungl.github.io/wooks-portfolio/" onclick="location.reload(); return false;">
+  wooks<span>portfolio</span>
+  </a>
+  </div>
   <nav class="nav-menu">
     <a href="#works">WORKS</a>
     <a href="#contact">CONTACT</a>
@@ -137,7 +152,7 @@
   </nav>
 </header>
 
-<div class="hero">
+<div class="hero" id="home">
   <video id="introVideo" autoplay muted loop>
     <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1748333162/yavrfc6tpqhi5n0j83bp.mp4" type="video/mp4">
   </video>
