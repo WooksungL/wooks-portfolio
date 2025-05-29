@@ -120,20 +120,22 @@
     /* 포트폴리오 그리드 */
     .portfolio {
       column-count: 3;
-      column-gap: 30px;
+      column-gap: 50px;
       padding: 60px;
     }
 
     .project {
       break-inside: avoid;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
     }
 
     .project img {
-      width: 150%;
+      width: 100%;
       height: auto;
       border-radius: 4px;
       display: block;
+      transition: transform 0.3s ease;
+      margin-bottom: 30px;  /* (선택) 이미지 아래 여백 */
     }
 
     .project img:hover {
@@ -180,7 +182,7 @@
 
   <section class="portfolio" id="works">
     <div class="project"><img src="https://wooksungl.github.io/wooks-portfolio/image/project1/0.jpg" alt="Project 1"></div>
-    <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+2" alt="Project 2"></div>
+    <div class="project"><img src="https://wooksungl.github.io/wooks-portfolio/image/project2/0.jpg" alt="Project 2"></div>
     <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+3" alt="Project 3"></div>
     <div class="project"><img src="https://via.placeholder.com/600x400?text=Project+4" alt="Project 4"></div>
   </section>
