@@ -43,11 +43,24 @@
 
     /* 상단 타이틀 라인 */
     .header {
-      padding: 60px 20px;
-      text-align: center;
-      border-top: 1px solid #999;
-      border-bottom: 1px solid #999;
+        padding: 60px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
     }
+
+    .header::before,
+    .header::after {
+        content: "";
+        display: block;
+        width: 70%;
+        height: 1px;
+        background-color: #999;
+        margin: 25px auto;
+    }
+
 
     .header h1 {
       font-size: 2rem;
@@ -56,9 +69,11 @@
       margin: 0;
     }
 
-    .highlight {
-      color: #ff8c2f;
+    .highlight-red {
+        color: #ff4d4d;
+        font-weight: bold;
     }
+
 
     .profile-section {
       padding: 60px 20px;
@@ -132,6 +147,61 @@
       display: flex;
     }
 
+    .animated-text {
+        font-size: 5.2rem; /* 글자 크게 */
+        font-weight: bold;
+        letter-spacing: 5px;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+
+    .animated-text span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(50px);
+        animation: slideIn 0.6s ease forwards;
+    }
+
+    .animated-text span.left {
+        transform: translateX(-50px);
+    }
+
+    .keyword-lines {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px; /* 기존보다 간격 넓힘 */
+        margin-top: 40px; /* 위 선과 키워드 그룹 전체 간격 */
+        margin-bottom: 40px; /* 아래 선과의 간격도 균등하게 */
+    }
+
+    .keywords {
+        font-size: 1.3rem;
+        color: #ccc;
+        letter-spacing: 3px;
+        text-align: center;
+        opacity: 0;
+        animation: fadeIn 1.2s ease forwards;
+        max-width: 100%;
+        margin: 0; /* 기본 p태그 margin 제거 */
+    }
+
+    @keyframes slideIn {
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+
+
   </style>
 </head>
 <body>
@@ -155,11 +225,14 @@
   </header>
 
   <!-- ✅ 상단 키워드 라인 -->
-  <div class="header">
-    <h1>
-      <span class="highlight">CREATIVE</span> DESIGNER <span class="highlight">WOOK</span>
-    </h1>
-  </div>
+    <div class="header">
+        <h1 class="animated-text" id="animatedTitle"></h1>
+        <div class="keyword-lines">
+            <p class="keywords" id="line1"></p>
+            <p class="keywords" id="line2"></p>
+        </div>
+    </div>
+
 
   <!-- ✅ 프로필 / 소개 섹션 -->
   <div class="profile-section">
@@ -179,6 +252,36 @@
       const box = document.getElementById("contactBox");
       box.classList.toggle("show");
     }
+
+    // 애니메이션 텍스트 생성
+    const line1Text = "CONCEPT DESIGN   VISUAL STORYTELLING   MOTION GRAPHICS   3D RENDERING   ARCHITECTURE   INTERACTION   INSTALLATION";
+    const line2Text = "RHINO   GRASSHOPPER   ADOBE CREATIVE   UNREAL ENGINE   TOUCHDESIGNER   AI TECHNOLOGY   HOUDINI   CINEMA 4D   BLENDER   AUTOCAD";
+
+    function animateLine(text, containerId, delayOffset = 0) {
+        const container = document.getElementById(containerId);
+        const redWords = ["CONCEPT", "DESIGN", "MOTION", "GRAPHICS", "ARCHITECTURE", "INSTALLATION", "ADOBE", "CREATIVE", "TOUCHDESIGNER", "CINEMA", "4D"]; // 강조할 단어 리스트
+        const words = text.split(/(\s+)/); // 공백 포함 분리
+
+        let charIndex = 0;
+
+        words.forEach(word => {
+            let isRed = redWords.some(red => word.includes(red));
+            [...word].forEach((char, i) => {
+                const span = document.createElement("span");
+                span.textContent = char;
+                span.classList.add(charIndex % 2 === 0 ? "left" : "right");
+                span.style.animationDelay = `${charIndex * 0.03 + delayOffset}s`;
+                if (isRed) span.classList.add("highlight-red");
+                container.appendChild(span);
+                charIndex++;
+            });
+        });
+    }
+
+
+    animateLine(line1Text, "line1", 0);
+    animateLine(line2Text, "line2", 1.5);
+
   </script>
 
 
