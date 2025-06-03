@@ -140,6 +140,39 @@
       color: #aaa;
     }
 
+    .description-image {
+      width: 150%;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .part1-text {
+      margin-top: 210px; /* 원하는 만큼 내려주세요 */
+      margin-bottom: 0;  /* ⛔️ 텍스트 아래 여백 제거 */
+      padding-bottom: 0;
+    }
+
+    .image-duo {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+      width: 100%;        /* ✅ 가로 전체 사용 */
+      max-width: none;    /* ✅ 제한 해제 */
+      padding: 0;         /* ✅ 여백 제거 */
+      margin: 0 auto;     /* 가운데 정렬 유지 */
+    }
+
+    .image-duo img {
+      width: auto;         /* ✅ 각 이미지가 절반씩 차지 (간격 감안) */
+      height: 650px;
+      object-fit: cover;
+      border-radius: 0;
+      display: block;         /* 🔻 inline 요소 여백 제거 */
+    }
+
+
 
   </style>
 </head>
@@ -164,19 +197,37 @@
       </div>
       <div class="right-block">
         <p>
-          This project reinterprets blockchain and NFT concepts architecturally to propose a decentralized urban system. 
-          Blockchain is reframed as “space” and transactions as “events,” forming spatial systems driven by consensus rather than centralized ownership. 
-          NFTs emphasize spatial uniqueness and scarcity, generating diverse architectural outcomes as data and experience accumulate.
-          “Pologies” explores the collapse of plan-section hierarchies to form new, fluid spatial languages.
-          Ultimately, the project imagines a “consensus city” built from bottom-up interactions, where personal agency, data, and relationships reconstruct the urban fabric in dynamic and decentralized ways.
+          This prototype visualizes how decentralized spatial structures emerge through layered interactions.
+          The model uses circuit boards, LEDs, and 3D-printed modules to mimic the behavior of a blockchain-based spatial system. 
+          Individual nodes communicate and evolve organically, representing consensus-driven architecture.
         </p>
         <p>
-          This work visualizes blockchain and NFT concepts in architecture to propose a data-driven urban transformation.  
-          Beyond ownership and central control, a decentralized city formed by real-time user interaction creates new architectural languages and spatial possibilities.
-          This experiment explores sustainable urban ecologies beyond physical limits.
+          The spatial form continuously shifts in response to user input, symbolizing the collapse of static hierarchy in favor of fluidity.
+          It suggests a new urban logic where the boundaries between digital data and physical matter dissolve.
         </p>
       </div>
     </section>
+
+    <section class="split-description">
+      <div class="left-block">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/0.jpg" alt="Pology Model Close-up" class="description-image" />
+      </div>
+      <div class="right-block">
+        <div class="part1-text"> <!-- 👈 새 div 추가 -->
+          <h2>Part 1 - BLOCK-CHAIN</h2>
+          <p>
+            This project interprets blockchain as spatial blocks and transactional events, proposing a decentralized urban system formed through trust, consensus, and individual freedom beyond central control.
+          </p>
+        </div>
+      </div>
+    </section>
+
+      <!-- 이미지 두 장을 나란히 배치 -->
+      <div class="image-duo">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/4.jpg" alt="Wide Graphic">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/5.jpg" alt="Tall Diagram">
+      </div>
+
 
   <div class="container">
 
