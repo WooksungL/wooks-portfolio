@@ -11,6 +11,7 @@
       background-color: #0a0a0a;
       color: #f0f0f0;
       font-family: 'Helvetica Neue', sans-serif;
+      overflow-x: hidden; /* 👉 수평 스크롤 방지 */
     }
 
         /* 💡 Hero 영역 */
@@ -52,14 +53,14 @@
     }
 
     .container {
-      max-width: 960px;
-      margin: 80px auto 60px;
+      max-width: 1000px;
+      margin: 60px auto;
       padding: 0 20px;
     }
 
     .back-link {
       display: block;
-      margin-bottom: 40px;
+      margin: 30px 20px 0;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
@@ -157,7 +158,7 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: 0;
+      gap: 20px;
       width: 100%;        /* ✅ 가로 전체 사용 */
       max-width: none;    /* ✅ 제한 해제 */
       padding: 0;         /* ✅ 여백 제거 */
@@ -173,7 +174,7 @@
     }
 
 
-
+    
   </style>
 </head>
 <body>
