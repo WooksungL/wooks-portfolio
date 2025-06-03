@@ -173,8 +173,79 @@
       display: block;         /* 🔻 inline 요소 여백 제거 */
     }
 
+    .part2-text {
+      margin-top: 580px; /* 원하는 만큼 내려주세요 */
+      margin-bottom: 0;  /* ⛔️ 텍스트 아래 여백 제거 */
+      padding-bottom: 0;
+    }
 
-    
+    .image-duo_1 {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;        /* ✅ 가로 전체 사용 */
+      max-width: none;    /* ✅ 제한 해제 */
+      padding: 0;         /* ✅ 여백 제거 */
+      margin: 0 auto;     /* 가운데 정렬 유지 */
+    }
+
+    .image-duo_1 img {
+      width: auto;         /* ✅ 각 이미지가 절반씩 차지 (간격 감안) */
+      height: 500px;
+      object-fit: cover;
+      border-radius: 0;
+      display: block;         /* 🔻 inline 요소 여백 제거 */
+    }
+
+    .video-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;             /* 영상 사이 간격 */
+      margin-top: 40px;
+      padding: 0 10px;
+    }
+
+    .video-row video {
+      width: 20%;            /* 3개 비율 분배 */
+      height: auto;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .image-video-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 400px; /* 원하는 너비로 조절 */
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .video-right video {
+      width: 360px;
+      height: auto;
+      border-radius: 4px;
+      object-fit: contain;
+    }
+
+
+
   </style>
 </head>
 <body>
@@ -194,7 +265,7 @@
     <section class="split-description">
       <div class="left-block">
         <h2>Spatial Reconstruction</h2>
-        <p class="date">Architectural Design<br>Architectural Theory<br>2021<br>Size : 2000 * 1800 * 1600 (mm)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;78.7 * 70.8 * 63 (inch)</p>
+        <p class="date">Architectural Design<br>Architectural Theory<br>2021<br>Size : 2000 * 1800 * 1600 (mm)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;78.7 * 70.8 * 63 (inch)<br><br>Rhino, Grasshopper, Adobe Creative, AutoCAD</p>
       </div>
       <div class="right-block">
         <p>
@@ -229,13 +300,51 @@
         <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/5.jpg" alt="Tall Diagram">
       </div>
 
+    <section class="split-description">
+      <div class="left-block">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/10.jpg" alt="Pology Model Close-up" class="description-image" />
+      </div>
+      <div class="right-block">
+        <div class="part2-text"> <!-- 👈 새 div 추가 -->
+          <h2>Part 2 - NFT</h2>
+          <p>
+            NFT’s uniqueness and scarcity redefine spatial identity and value. Interacting color boxes and shadows visualize mutual influence and layered events, reconstructing the city through individual experiences.
+          </p>
+        </div>
+      </div>
+    </section>
+
+      <!-- 이미지 두 장을 나란히 배치 -->
+      <div class="image-duo_1">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/8.jpg" alt="Wide Graphic">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/9.jpg" alt="Tall Diagram">
+      </div>
+      <div class="video-row">
+        <video src="https://wooksungl.github.io/wooks-portfolio/image/project2/video_1.mp4" autoplay muted loop playsinline></video>
+        <video src="https://wooksungl.github.io/wooks-portfolio/image/project2/video_2.mp4" autoplay muted loop playsinline></video>
+        <video src="https://wooksungl.github.io/wooks-portfolio/image/project2/video_3.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="image-video-wrap">
+        <div class="image-grid">
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/11.jpg" alt="img11" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/12.jpg" alt="img12" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/13.jpg" alt="img13" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/14.jpg" alt="img14" />
+        </div>
+        <div class="video-right">
+          <video src="https://wooksungl.github.io/wooks-portfolio/image/project2/video_4.mp4" autoplay muted loop playsinline controls></video>
+        </div>
+      </div>
+
+
+
 
   <div class="container">
 
     <div class="project-media">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/1.jpg" alt="Digital Architecture Image 1">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/2.jpg" alt="Digital Architecture Image 2">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/3.jpg" alt="Digital Architecture Image 3">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/6.jpg" alt="Digital Architecture Image 1">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/1.jpg" alt="Digital Architecture Image 2">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/7.png" alt="Digital Architecture Image 3">
     </div>
 
     <footer>
