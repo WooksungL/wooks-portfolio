@@ -173,8 +173,9 @@
     }
 
     .work-process-section {
+      max-width: 1000px;
       margin: 100px auto 80px;
-      padding: 0 5%;
+      padding: 0 20px;
       color: #f0f0f0;
     }
 
@@ -191,17 +192,20 @@
     }
 
     .work-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* 한 줄에 5개 */
+      gap: 10px; /* 간격 좁힘 */
+      justify-items: center;
     }
 
-    .work-grid img {
-      width: calc(33.333% - 20px);
-      border-radius: 4px;
+    .work-grid img,
+    .work-grid video {
+      width: 100%;
+      height: 250px;
       object-fit: cover;
+      border-radius: 4px;
     }
+
 
 
   </style>
@@ -278,9 +282,16 @@
     <h2>Work Process</h2>
     <hr>
     <div class="work-grid">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/process12.jpg" alt="Work 1">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/process13.jpg" alt="Work 2">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/process14.jpg" alt="Work 3">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/12.jpg" alt="Work 1">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/13.jpg" alt="Work 2">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/14.jpg" alt="Work 3">
+      <video src="https://wooksungl.github.io/wooks-portfolio/image/project1/15.mp4" autoplay muted loop playsinline controls></video>
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/16.jpg" alt="Work 4">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/17.jpg" alt="Work 5">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/18.jpg" alt="Work 6">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/19.jpg" alt="Work 7">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/20.jpg" alt="Work 8">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/21.jpg" alt="Work 9">
     </div>
   </section>
 
