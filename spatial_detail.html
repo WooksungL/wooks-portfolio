@@ -107,6 +107,40 @@
       color: #555;
       margin: 40px 0;
     }
+
+    .split-description {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 350px;
+      padding: 50px 10%;
+      color: #ccc;
+      margin-bottom: 0px; /* 👈 글 설명 아래 여백 추가 */
+    }
+
+    .left-block {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .right-block {
+      flex: 2;
+      min-width: 300px;
+      line-height: 1.7;
+    }
+
+    .left-block h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .left-block .date {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+
   </style>
 </head>
 <body>
@@ -118,19 +152,33 @@
   <section class="hero">
     <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/3.jpg" alt="Hero Background">
     <div class="hero-text">
-      <h1>Digital Architecture</h1>
-      <p>Architectural Theory, Fabrication, 2022</p>
+      <h1>Spatial Reconstruction</h1>
+      <p>Architectural Design, Architectural Theory, 2021</p>
     </div>
   </section>
 
+    <section class="split-description">
+      <div class="left-block">
+        <h2>Spatial Reconstruction</h2>
+        <p class="date">Architectural Design<br>Architectural Theory<br>2021<br>Size : 2000 * 1800 * 1600 (mm)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;78.7 * 70.8 * 63 (inch)</p>
+      </div>
+      <div class="right-block">
+        <p>
+          This project reinterprets blockchain and NFT concepts architecturally to propose a decentralized urban system. 
+          Blockchain is reframed as “space” and transactions as “events,” forming spatial systems driven by consensus rather than centralized ownership. 
+          NFTs emphasize spatial uniqueness and scarcity, generating diverse architectural outcomes as data and experience accumulate.
+          “Pologies” explores the collapse of plan-section hierarchies to form new, fluid spatial languages.
+          Ultimately, the project imagines a “consensus city” built from bottom-up interactions, where personal agency, data, and relationships reconstruct the urban fabric in dynamic and decentralized ways.
+        </p>
+        <p>
+          This work visualizes blockchain and NFT concepts in architecture to propose a data-driven urban transformation.  
+          Beyond ownership and central control, a decentralized city formed by real-time user interaction creates new architectural languages and spatial possibilities.
+          This experiment explores sustainable urban ecologies beyond physical limits.
+        </p>
+      </div>
+    </section>
+
   <div class="container">
-
-    <h1>Spatial Reconstruction</h1>
-    <p class="sub">Architectural Design, Architectural Theory, 2021</p>
-
-    <div class="project-description">
-      Digital Architecture is a speculative exploration of digitally fabricated form and environmental simulation. This project visualizes the collision of machine logic and spatial intuition, blending computational workflows with architectural storytelling.
-    </div>
 
     <div class="project-media">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/1.jpg" alt="Digital Architecture Image 1">
