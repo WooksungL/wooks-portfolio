@@ -217,17 +217,16 @@
     .image-video-wrap {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: stretch; /* 👉 높이를 같이 맞춰줌 */
       gap: 40px;
       margin-top: 40px;
-      flex-wrap: wrap;
     }
 
     .image-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      width: 400px; /* 원하는 너비로 조절 */
+      width: 750px; /* 👉 이미지 크기 증가 */
     }
 
     .image-grid img {
@@ -237,12 +236,18 @@
       border-radius: 4px;
     }
 
+    .video-right {
+      display: flex;
+      align-items: center; /* 👉 수직 중앙 정렬 */
+    }
+
     .video-right video {
-      width: 360px;
+      width: 550px; /* 👉 더 키운 크기 */
       height: auto;
       border-radius: 4px;
       object-fit: contain;
     }
+
 
 
 
@@ -326,10 +331,10 @@
       </div>
       <div class="image-video-wrap">
         <div class="image-grid">
-          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/11.jpg" alt="img11" />
-          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/12.jpg" alt="img12" />
-          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/13.jpg" alt="img13" />
-          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/14.jpg" alt="img14" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/14.jpg" alt="img11" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/11.jpg" alt="img12" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/12.jpg" alt="img13" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/13.jpg" alt="img14" />
         </div>
         <div class="video-right">
           <video src="https://wooksungl.github.io/wooks-portfolio/image/project2/video_4.mp4" autoplay muted loop playsinline controls></video>
