@@ -141,12 +141,20 @@
     }
 
     .project-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       border: 2px solid transparent;
       transition: all 0.3s ease;
       border-radius: 4px;
       overflow: hidden;
       background-color: transparent;
+
+      /* ✅ 삭제하거나 수정 */
+      /* height: 100%; */
+      /* min-height: 320px; */
     }
+
 
     .project-box:hover {
       border: 2px solid #fff;
@@ -279,7 +287,9 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 50px;
       grid-auto-rows: auto;
+      grid-auto-flow: dense; /* ✅ 추가 */
       position: relative; /* 추가 */
+      align-items: start;     /* ✅ 이거도 유지 */
     }
 
 
@@ -362,7 +372,6 @@
       opacity: 0;
     }
 
-
   </style>
 </head>
 <body>
@@ -410,7 +419,7 @@
 
   <section class="portfolio" id="works">
     <div class="grid-wrapper">
-      <div class="project">
+      <div class="project" data-category="Architecture">
         <a href="digital_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -424,7 +433,7 @@
         </div>
         </a>
       </div>
-      <div class="project">
+      <div class="project" data-category="Architecture">
         <a href="spatial_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -438,7 +447,7 @@
         </div>
         </a>
       </div>
-      <div class="project">
+      <div class="project"  data-category="Architecture">
         <a href="seoul_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -452,7 +461,7 @@
         </div>
         </a>
       </div>
-      <div class="project wide-project">
+      <div class="project wide-project" data-category="AI Technology, Design, Architecture">
         <a href="superimposing_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -472,7 +481,7 @@
         </div>
         </a>
       </div>
-      <div class="project full-width-project">
+      <div class="project full-width-project" data-category="Architecture, Design, AI Technology">
         <a href="generative_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -492,7 +501,7 @@
         </div>
         </a>
       </div>
-      <div class="project">
+      <div class="project" data-category="Design, Experiments">
         <a href="houdini_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -512,7 +521,7 @@
         </div>
         </a>
       </div>
-      <div class="project">
+      <div class="project" data-category="Design, Experiments">
         <a href="fractal_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -530,7 +539,7 @@
         </div>
         </a>
       </div>
-      <div class="project">
+      <div class="project" data-category="Design, Experiments">
         <a href="touchdesigner_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -563,6 +572,47 @@
       box.classList.toggle("show");
     }
   </script>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-menu span');
+    const projects = document.querySelectorAll('.project');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.textContent.trim().toLowerCase().replace('.', '');
+
+        // 버튼 상태 초기화
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        projects.forEach(project => {
+          const dataCategory = project.getAttribute('data-category')?.toLowerCase() || '';
+          const title = project.querySelector('h3')?.textContent || '';
+
+          if (category === 'everything') {
+            project.style.display = 'block';
+
+            if (title.includes('Superimposing')) {
+              project.classList.add('wide-project');
+            } else if (title.includes('Generative')) {
+              project.classList.add('full-width-project');
+            } else {
+              project.classList.remove('wide-project', 'full-width-project');
+            }
+          } else {
+            if (dataCategory.includes(category)) {
+              project.style.display = 'block';
+              project.classList.remove('wide-project', 'full-width-project');
+            } else {
+              project.style.display = 'none';
+              project.classList.remove('wide-project', 'full-width-project');
+            }
+          }
+        });
+      });
+    });
+  </script>
+
 
   <footer style="background-color: #000; padding: 20px 60px; color: #f0f0f0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 0.85rem;">
   <div style="margin-bottom: 10px;">
