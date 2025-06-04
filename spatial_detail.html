@@ -249,19 +249,52 @@
     }
 
     .part3-text {
-      margin-top: 280px; /* 원하는 만큼 내려주세요 */
+      margin-top: 400px; /* 원하는 만큼 내려주세요 */
       margin-bottom: 0;  /* ⛔️ 텍스트 아래 여백 제거 */
       padding-bottom: 0;
     }
 
     .large-only {
       width: 200%;
-      max-width: 730px;  /* 원하는 크기로 조절 */
+      max-width: 800px;  /* 원하는 크기로 조절 */
       height: auto;
     }
 
     .part3-section {
-      gap: 380px;
+      gap: 80px;
+    }
+
+    .image-trio {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px; /* 이미지 사이 간격 */
+      margin-top: 20px;
+    }
+
+    .image-trio img {
+      height: 500px; /* 원하는 고정 높이 */
+      width: auto;   /* 가로는 비율에 따라 자동 조절 */
+      object-fit: contain; /* 이미지 전체가 보이도록 설정 */
+      border-radius: 4px;
+      display: block;
+    }
+
+    .media-pair {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px; /* 비디오와 이미지 사이 간격 */
+      margin-top: 60px;
+    }
+
+    .media-pair video,
+    .media-pair img {
+      width: 700px;       /* 원하는 너비로 조정 가능 */
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
     }
 
 
@@ -358,7 +391,7 @@
 
       <section class="split-description part3-section">
         <div class="left-block">
-          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/15.jpg" alt="Pology Model Close-up" class="description-image large-only" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/15_1.jpg" alt="Pology Model Close-up" class="description-image large-only" />
         </div>
         <div class="right-block">
           <div class="part3-text"> <!-- 👈 새 div 추가 -->
@@ -370,13 +403,35 @@
         </div>
       </section>
 
+      <div class="image-trio">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/16.jpg" alt="img16" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/17.jpg" alt="img17" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/18.jpg" alt="img18" />
+      </div>
+      <div class="media-pair">
+        <div class="media-left">
+          <video src="https://wooksungl.github.io/wooks-portfolio/image/project2/video_5.mp4" autoplay muted loop playsinline controls></video>
+        </div>
+        <div class="media-right">
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/19.jpg" alt="img19" />
+        </div>
+      </div>
+      <div class="image-trio">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/20.jpg" alt="img20" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/21.jpg" alt="img21" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/22.jpg" alt="img22" />
+      </div>
+
+
 
 
 
   <div class="container">
 
     <div class="project-media">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/2.jpg" alt="Digital Architecture Image 0">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/6.jpg" alt="Digital Architecture Image 1">
+      
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/1.jpg" alt="Digital Architecture Image 2">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/7.png" alt="Digital Architecture Image 3">
     </div>
