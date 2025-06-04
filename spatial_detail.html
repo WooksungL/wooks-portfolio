@@ -357,6 +357,29 @@
       border-radius: 4px;
     }
 
+    .image-overlay-container {
+      position: relative;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    .image-overlay-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .top-right-text {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background-color: rgba(0, 0, 0, 0.6); /* 반투명 배경 */
+      color: #fff;
+      padding: 15px;
+      max-width: 500px;
+      border-radius: 4px;
+    }
+
 
   </style>
 </head>
@@ -450,7 +473,7 @@
 
       <section class="split-description part3-section">
         <div class="left-block">
-          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/15_1.jpg" alt="Pology Model Close-up" class="description-image large-only" />
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/15_1.jpg" alt="Pology Model Close-up" class="description-image large-only_1" />
         </div>
         <div class="right-block">
           <div class="part3-text"> <!-- 👈 새 div 추가 -->
@@ -481,9 +504,17 @@
         <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/22.jpg" alt="img22" />
       </div>
 
+      <div class="image-overlay-container">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/2.jpg" alt="Overlay Image" />
+
+        <div class="top-right-text">
+          <h3>Part 4 - FINAL PROCESS</h3>
+          <p>Block-Chain technology will bring a new look to the city structure. The existing central structure, the Top-down method, will change to the decentralized Bottom-up method of the consensus process, and the space will continue to be newly reorganized by the phenomenon of consensus, forming diverse relationship.</p>
+        </div>
+      </div>
+
   <div class="container">
     <div class="project-media">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/2.jpg" alt="Digital Architecture Image 1">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/6.jpg" alt="Digital Architecture Image 2">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/23.jpg" alt="Digital Architecture Image 3">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project2/1.jpg" alt="Digital Architecture Image 4">
