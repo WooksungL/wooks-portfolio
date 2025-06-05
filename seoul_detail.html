@@ -235,7 +235,24 @@
       border-radius: 10px;
     }
 
+    .image-duo {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;        /* ✅ 가로 전체 사용 */
+      max-width: none;    /* ✅ 제한 해제 */
+      padding: 0;         /* ✅ 여백 제거 */
+      margin: 0 auto;     /* 가운데 정렬 유지 */
+    }
 
+    .image-duo img {
+      width: auto;         /* ✅ 각 이미지가 절반씩 차지 (간격 감안) */
+      height: 650px;
+      object-fit: cover;
+      border-radius: 0;
+      display: block;         /* 🔻 inline 요소 여백 제거 */
+    }
 
 
 
@@ -298,7 +315,11 @@
         <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/10.jpg" alt="Image 10" />
       </div>
     </section>
-
+      <!-- 이미지 두 장을 나란히 배치 -->
+      <div class="image-duo white-section">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/0.jpg" alt="Wide Graphic">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/11.jpg" alt="Tall Diagram">
+      </div>
 
 
 
