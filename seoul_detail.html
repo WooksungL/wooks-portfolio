@@ -263,18 +263,21 @@
     .image-trio {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      gap: 0; /* 이미지 사이 간격 */
-      margin-top: 0;
+      align-items: center;
+      gap: 20px; /* 💡 조금의 간격 추가 */
+      padding: 20px 0;
     }
 
+
     .image-trio img {
-      height: 400px; /* 원하는 고정 높이 */
-      width: auto;   /* 가로는 비율에 따라 자동 조절 */
-      object-fit: contain; /* 이미지 전체가 보이도록 설정 */
+      height: auto;
+      width: 100%;
+      max-width: 350px; /* 또는 적당한 크기 */
+      object-fit: contain;
       border-radius: 4px;
       display: block;
     }
+
 
 
 
