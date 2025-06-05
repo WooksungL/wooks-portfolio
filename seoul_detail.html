@@ -152,6 +152,92 @@
       color: #000000;
     }
 
+    .image-text-grid {
+      display: flex;
+      gap: 40px;
+      padding: 30px 10%;
+      background-color: #ffffff;
+      color: #000000;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .image-grid-left {
+      flex: 7;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      align-items: start;
+    }
+
+    .image-grid-left img {
+      width: 100%;
+      height: 250px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .lower-text {
+      margin-top: 400px; /* ✅ 글씨 아래로 내림 */
+    }
+
+    .text-right {
+      flex: 3;
+      min-width: 250px;
+    }
+
+    .text-right h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .text-right p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .media-layout {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px; /* 👉 간격 조금 더 넓게 */
+      padding: 0;
+      background-color: #ffffff;
+    }
+
+    .video-block video {
+      width: 570px;
+      height: 370px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .middle-images {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .middle-images img {
+      width: 370px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .vertical-image img {
+      height: 380px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+
+
+
 
 
   </style>
@@ -172,7 +258,7 @@
     <section class="split-description white-section">
       <div class="left-block">
         <h2>Seoul Network Behaviorology</h2>
-        <p class="date">Architectural Design<br>Architectural Theory<br>2019<br>Size : 1000 * 700 * 1700 (mm)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40 * 27.5 * 67 (inch)<br><br>Rhino, Grasshopper, Adobe Creative, AutoCAD</p>
+        <p class="date">Architectural Design<br>Architectural Theory<br>2019<br>Workshop in Tokyo<br>Size : 1000 * 700 * 1700 (mm)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40 * 27.5 * 67 (inch)<br><br>Rhino, Grasshopper, Adobe Creative, AutoCAD</p>
       </div>
       <div class="right-block">
         <p>
@@ -183,6 +269,38 @@
         </p>
       </div>
     </section>
+    <!-- 이미지 + 텍스트 영역 (7:3 비율) -->
+    <section class="image-text-grid white-section">
+      <div class="image-grid-left">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/2.jpg" alt="Image 2" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/3.jpg" alt="Image 3" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/4.jpg" alt="Image 4" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/5.jpg" alt="Image 5" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/6.jpg" alt="Image 6" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/7.png" alt="Image 7" />
+      </div>
+      <div class="text-right lower-text">
+        <p>
+          Starting with modeling a room in Seoul, we visualized spatial flows of 15 individuals, revealing the complex yet organic relationships in urban life.
+        </p>
+      </div>
+    </section>
+
+    <section class="media-layout">
+      <div class="video-block">
+        <video src="https://wooksungl.github.io/wooks-portfolio/image/project3/video_1.mp4" autoplay muted loop playsinline controls></video>
+      </div>
+      <div class="middle-images">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/8.jpg" alt="Image 8" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/9.jpg" alt="Image 9" />
+      </div>
+      <div class="vertical-image">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/10.jpg" alt="Image 10" />
+      </div>
+    </section>
+
+
+
 
 
   <div class="container">
