@@ -260,6 +260,22 @@
       object-fit: cover;
     }
 
+    .image-trio {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0; /* 이미지 사이 간격 */
+      margin-top: 0;
+    }
+
+    .image-trio img {
+      height: 400px; /* 원하는 고정 높이 */
+      width: auto;   /* 가로는 비율에 따라 자동 조절 */
+      object-fit: contain; /* 이미지 전체가 보이도록 설정 */
+      border-radius: 4px;
+      display: block;
+    }
+
 
 
 
@@ -329,6 +345,11 @@
       <div class="image-duo white-section">
         <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/12.jpg" alt="Wide Graphic">
         <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/13.jpg" alt="Tall Diagram">
+      </div>
+      <div class="image-trio white-section">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/14.jpg" alt="img14" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/15.jpg" alt="img15" />
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project3/16.jpg" alt="img16" />
       </div>
 
 
