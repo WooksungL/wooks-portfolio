@@ -135,6 +135,27 @@
       justify-content: center;
     }
 
+    .video-grid-section {
+      padding: 60px 10%;
+      background-color: #000;
+    }
+
+    .video-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .video-row video {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+
 
   </style>
 </head>
@@ -165,6 +186,29 @@
       </video>
     </div>
   </section>
+
+  <section class="video-grid-section">
+    <div class="video-row">
+      <video autoplay muted loop playsinline>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/Test.mov" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0217.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/glitch_final_1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-row">
+      <video autoplay muted loop playsinline>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/Real_intro.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/Video4_Final.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
 
 
 
