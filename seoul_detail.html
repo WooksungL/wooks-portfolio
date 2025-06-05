@@ -126,6 +126,7 @@
       flex: 2;
       min-width: 300px;
       line-height: 1.7;
+      margin-top: 50px; /* ← 이 값을 조절하면 내려가는 높이가 바뀝니다 */
     }
 
     .left-block h2 {
@@ -139,6 +140,19 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    .white-section {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .white-section .left-block h2,
+    .white-section .left-block .date,
+    .white-section .right-block p {
+      color: #000000;
+    }
+
+
 
   </style>
 </head>
@@ -155,20 +169,17 @@
       </div>
     </section>
 
-    <section class="split-description">
+    <section class="split-description white-section">
       <div class="left-block">
         <h2>Seoul Network Behaviorology</h2>
         <p class="date">Architectural Design<br>Architectural Theory<br>2019<br>Size : 1000 * 700 * 1700 (mm)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40 * 27.5 * 67 (inch)<br><br>Rhino, Grasshopper, Adobe Creative, AutoCAD</p>
       </div>
       <div class="right-block">
         <p>
-          This prototype visualizes how decentralized spatial structures emerge through layered interactions.
-          The model uses circuit boards, LEDs, and 3D-printed modules to mimic the behavior of a blockchain-based spatial system. 
-          Individual nodes communicate and evolve organically, representing consensus-driven architecture.
-        </p>
-        <p>
-          The spatial form continuously shifts in response to user input, symbolizing the collapse of static hierarchy in favor of fluidity.
-          It suggests a new urban logic where the boundaries between digital data and physical matter dissolve.
+          This project explores the behavioral dynamics of Seoul citizens in a networked society and visualizes their spatial synergies.
+          By randomly placing five major districts and mapping people’s movements, it transforms urban interactions into a three-dimensional system.  
+          The work highlights how individuals create space through activity and communication, suggesting that cities are fluid structures shaped by time, relationships, and personal agency. 
+          The model reflects Seoul’s layered complexity through a responsive and diversified urban infrastructure.
         </p>
       </div>
     </section>
