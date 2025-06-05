@@ -115,21 +115,21 @@
     .split-description {
       display: flex;
       flex-wrap: wrap;
-      gap: 350px;
+      gap: 100px;
       padding: 50px 10%;
       color: #ccc;
-      margin-bottom: 0px; /* 👈 글 설명 아래 여백 추가 */
+      align-items: flex-start;
     }
 
     .left-block {
       flex: 1;
-      min-width: 200px;
+      min-width: 250px;
+      margin: 50px;
     }
 
     .right-block {
-      flex: 2;
+      flex: 1;
       min-width: 300px;
-      margin-top: 0; /* 기존의 150px 제거 */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -152,17 +152,21 @@
       <p>AI Technology, Design, Experimental Work, 2025</p>
     </div>
   </section>
-  <section class="split-description white-section">
-      <div class="left-block">
-        <h2>Superimposing the Contemporary Global Context<br>(Work in Progress)</h2>
-        <p class="date">AI Technology<br>Design<br>Experimental Work<br>2025<br><br>TouchDesigner, AI, Adobe Creative, Python, Unreal Engine, Blender, Rhino</p>
-      </div>
-      <div class="right-block">
-        <video autoplay muted loop playsinline style="width: 80%; max-width: 400px; height: auto; border-radius: 8px;">
-          <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/tv.mp4" type="video/mp4">
-        </video>
-      </div>
-    </section>
+  <section class="split-description">
+    <div class="left-block">
+      <h2>Superimposing the Contemporary Global Context<br>(Work in Progress)</h2>
+      <p class="date">AI Technology<br>Design<br>Experimental Work<br>2025<br><br>
+        TouchDesigner, AI, Adobe Creative, Python, Unreal Engine, Blender, Rhino
+      </p>
+    </div>
+    <div class="right-block">
+      <video autoplay muted loop playsinline style="width: 100%; max-width: 800px; border-radius: 8px;">
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/TV_1.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+
 
 
   <div class="container">
