@@ -704,6 +704,31 @@
               project.classList.remove('wide-project', 'full-width-project', 'enlarged');
             }
           }
+          // ✅ 이 아래에 추가
+          if (category === 'architecture') {
+            const grid = document.querySelector('.grid-wrapper');
+
+            const priority = {
+              'Superimposing': 0,
+              'Digital': 1,
+              'Generative': 2,
+              'Spatial': 3,
+              'Seoul': 4
+            };
+
+            const sorted = Array.from(projects)
+              .filter(p => p.style.display !== 'none')
+              .sort((a, b) => {
+                const aTitle = a.querySelector('h3')?.textContent || '';
+                const bTitle = b.querySelector('h3')?.textContent || '';
+                const aIndex = Object.entries(priority).find(([k]) => aTitle.includes(k))?.[1] ?? 999;
+                const bIndex = Object.entries(priority).find(([k]) => bTitle.includes(k))?.[1] ?? 999;
+                return aIndex - bIndex;
+              });
+
+            sorted.forEach(p => grid.appendChild(p));
+          }
+
         });
       });
     });
