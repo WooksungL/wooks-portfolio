@@ -654,6 +654,10 @@
   <script>
     const filterButtons = document.querySelectorAll('.filter-menu span');
     const projects = document.querySelectorAll('.project');
+    const grid = document.querySelector('.grid-wrapper');
+
+    // 💡 초기 순서 기억
+    const originalOrder = Array.from(projects);
 
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -666,7 +670,6 @@
           const dataCategory = project.getAttribute('data-category')?.toLowerCase() || '';
           const title = project.querySelector('h3')?.textContent || '';
 
-          // 프로젝트 박스 내부 선택
           const spatialBox = project.querySelector('.spatial-box');
           const spatialImageBox = project.querySelector('.spatial-image-box');
 
@@ -679,7 +682,6 @@
               project.classList.add('full-width-project');
             } else if (title.includes('Spatial')) {
               project.classList.add('enlarged');
-              // 다시 키움
               if (spatialBox && spatialImageBox) {
                 spatialBox.style.minHeight = '685px';
                 spatialImageBox.style.height = '685px';
@@ -687,49 +689,48 @@
             } else {
               project.classList.remove('wide-project', 'full-width-project', 'enlarged');
             }
-
           } else {
             if (dataCategory.includes(category)) {
               project.style.display = 'block';
               project.classList.remove('wide-project', 'full-width-project', 'enlarged');
-
-              // 🔻 Architecture 필터처럼 크기 줄일 때
               if (title.includes('Spatial') && spatialBox && spatialImageBox) {
                 spatialBox.style.minHeight = 'auto';
                 spatialImageBox.style.height = 'auto';
               }
-
             } else {
               project.style.display = 'none';
               project.classList.remove('wide-project', 'full-width-project', 'enlarged');
             }
           }
-          
-          if (category === 'architecture') {
-            const grid = document.querySelector('.grid-wrapper');
-
-            const priority = {
-              'Superimposing': 0,
-              'Digital': 1,
-              'Generative': 2,
-              'Spatial': 3,
-              'Seoul': 4
-            };
-
-            const sorted = Array.from(projects)
-              .filter(p => p.style.display !== 'none')
-              .sort((a, b) => {
-                const aTitle = a.querySelector('h3')?.textContent || '';
-                const bTitle = b.querySelector('h3')?.textContent || '';
-                const aIndex = Object.entries(priority).find(([k]) => aTitle.includes(k))?.[1] ?? 999;
-                const bIndex = Object.entries(priority).find(([k]) => bTitle.includes(k))?.[1] ?? 999;
-                return aIndex - bIndex;
-              });
-
-            sorted.forEach(p => grid.appendChild(p));
-          }
-
         });
+
+        // ✅ Architecture 정렬
+        if (category === 'architecture') {
+          const priority = {
+            'Superimposing': 0,
+            'Digital': 1,
+            'Generative': 2,
+            'Spatial': 3,
+            'Seoul': 4
+          };
+
+          const sorted = Array.from(projects)
+            .filter(p => p.style.display !== 'none')
+            .sort((a, b) => {
+              const aTitle = a.querySelector('h3')?.textContent || '';
+              const bTitle = b.querySelector('h3')?.textContent || '';
+              const aIndex = Object.entries(priority).find(([k]) => aTitle.includes(k))?.[1] ?? 999;
+              const bIndex = Object.entries(priority).find(([k]) => bTitle.includes(k))?.[1] ?? 999;
+              return aIndex - bIndex;
+            });
+
+          sorted.forEach(p => grid.appendChild(p));
+        }
+
+        // ✅ Everything 순서 복구
+        if (category === 'everything') {
+          originalOrder.forEach(p => grid.appendChild(p));
+        }
       });
     });
   </script>
