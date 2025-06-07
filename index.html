@@ -274,29 +274,47 @@
     /* Wide project layout 유지 */
 
     .project.wide-project {
-      position: absolute;
-      top: 420px; /* 원하는 높이에 맞춰 조절 (해상도 따라 값 조정 가능) */
-      left: 5px; /* 왼쪽 여백과 맞춰 조정 */
-      width: calc(68% - 35px); /* 그리드 2칸 너비에 gap 보정 */
-      height: 400px; /* 💡 원하는 만큼 높이 조정 (기존보다 크게) */
-      z-index: 2;
+      grid-column: 1 / span 2; /* 가운데부터 오른쪽까지 2칸 차지 */
+      grid-row: auto;
+      position: relative; /* 기존 absolute 제거 */
+      width: 100%;
+      height: auto;
+      z-index: auto;
     }
 
     .grid-wrapper {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 50px;
       grid-auto-rows: auto;
-      grid-auto-flow: dense; /* ✅ 추가 */
-      position: relative; /* 추가 */
-      align-items: start;     /* ✅ 이거도 유지 */
+      gap: 30px; /* 또는 20px */
     }
-
 
     .wide-project video {
       max-height: 300px; /* 기존과 유사한 높이로 제한 */
       height: 100%;
     }
+
+    /* 새로운 그룹 wrapper 스타일 */
+    .project-row {
+      display: contents; /* Grid 내부에서 감싸는 역할만 */
+    }
+
+    .project.superimposing {
+      grid-column: 1 / span 2;
+    }
+
+    .project.seoul {
+      grid-column: 3;
+    }
+
+    .project.digital {
+      grid-column: 1;
+    }
+
+    .project.spatial {
+      grid-column: 2;
+    }
+
 
     /* 비디오 기본 스타일 */
     .main-video,
@@ -419,6 +437,28 @@
 
   <section class="portfolio" id="works">
     <div class="grid-wrapper">
+      <div class="project-row" style="display: contents;">
+      <div class="project wide-project" data-category="AI Technology, Design, Architecture">
+        <a href="superimposing_detail.html" style="text-decoration: none;">
+        <div class="project-box">
+          <div class="image-hover-box">
+            <!-- Main video (default display) -->
+            <video class="main-video" autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749246234/Video1_new_rjr75x.mp4" type="video/mp4">
+            </video>
+            <!-- Hover video (shown on hover) -->
+            <video class="hover-video" muted autoplay loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749246380/Video2_slrrbj.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption">
+            <h3>Superimposing the Contemporary Global Context</h3>
+            <p>AI Technology, Design, Experimental Work, 2025</p>
+          </div>
+        </div>
+        </a>
+      </div>
+
       <div class="project" data-category="Architecture">
         <a href="digital_detail.html" style="text-decoration: none;">
         <div class="project-box">
@@ -447,7 +487,9 @@
         </div>
         </a>
       </div>
-      <div class="project"  data-category="Architecture">
+      </div>
+
+      <div class="project"   data-category="Architecture">
         <a href="seoul_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
@@ -461,37 +503,18 @@
         </div>
         </a>
       </div>
-      <div class="project wide-project" data-category="AI Technology, Design, Architecture">
-        <a href="superimposing_detail.html" style="text-decoration: none;">
-        <div class="project-box">
-          <div class="image-hover-box">
-            <!-- Main video (default display) -->
-            <video class="main-video" autoplay muted loop playsinline>
-              <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/Video1_new.mp4" type="video/mp4">
-            </video>
-            <!-- Hover video (shown on hover) -->
-            <video class="hover-video" muted autoplay loop playsinline>
-              <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/Video2.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="caption">
-            <h3>Superimposing the Contemporary Global Context</h3>
-            <p>AI Technology, Design, Experimental Work, 2025</p>
-          </div>
-        </div>
-        </a>
-      </div>
+
       <div class="project full-width-project" data-category="Architecture, Design, AI Technology">
         <a href="generative_detail.html" style="text-decoration: none;">
         <div class="project-box">
           <div class="image-hover-box">
             <!-- Main video -->
             <video class="main-video" autoplay muted loop playsinline>
-              <source src="https://wooksungl.github.io/wooks-portfolio/image/project5/DiagramFinal.mp4" type="video/mp4">
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247460/DiagramFinal_eimpg8.mp4" type="video/mp4">
             </video>
             <!-- Hover video -->
             <video class="hover-video" autoplay muted loop playsinline>
-              <source src="https://wooksungl.github.io/wooks-portfolio/image/project5/Fragment_RealFinal1.mp4" type="video/mp4">
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247474/Fragment_RealFinal1_t7cux5.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption">
@@ -544,10 +567,10 @@
         <div class="project-box">
           <div class="image-hover-box">
             <video class="main-video" autoplay muted loop playsinline>
-              <source src="https://wooksungl.github.io/wooks-portfolio/image/project8/final_cell.mp4" type="video/mp4">
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247621/final_cell_w37ngu.mp4" type="video/mp4">
             </video>
             <video class="hover-video" autoplay muted loop playsinline>
-              <source src="https://wooksungl.github.io/wooks-portfolio/image/project8/2.mp4" type="video/mp4">
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247633/2_vv2vz0.mp4" type="video/mp4">
             </video>
           </div>
           <div class="caption">
