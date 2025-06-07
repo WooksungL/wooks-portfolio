@@ -124,12 +124,11 @@
     .left-block {
       flex: 1;
       min-width: 250px;
-      margin: 50px;
     }
 
     .right-block {
       flex: 1;
-      min-width: 300px;
+      width: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -180,7 +179,22 @@
       color: #ccc;
       margin-bottom: 30px;
     }
+    
+    .video-trio-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 50px;
+      flex-wrap: wrap; /* 줄바꿈 허용 (작은 화면 대응) */
+    }
 
+    .video-trio-row video {
+      width: auto;
+      height: 500px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
 
 
   </style>
@@ -245,9 +259,33 @@
     <p>
       <strong>Construction, Artificial Intelligence</strong><br>Construction, supported by artificial intelligence, allows for the dynamic redesign and reimagination of urban landscapes, enabling cities to evolve and adapt to new cultural and technological influences.
     </p>
+    <div style="text-align: center; margin-top: -10px;">
+      <video autoplay muted loop playsinline style="width: auto; max-width: 80%; height: auto; border-radius: 8px;">
+        <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/unify.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- 단일 중앙 비디오 아래에 3개 가로 배열 -->
+    <div class="video-trio-row">
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749246234/Video1_new_rjr75x.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749246380/Video2_slrrbj.mp4" type="video/mp4">
+      </video>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247384/Video3_txb7p7.mp4" type="video/mp4">
+      </video>
+    </div>
   </section>
 
-
+  <section class="text-section">
+    <h2>Synthetic Spectacle: Collaging Urban Experience Through AI</h2>
+    <hr>
+    <p>
+      This project, grounded in Guy Debord’s theory of the spectacle, uses AI to digitally overlay Seoul’s urban imagery onto Los Angeles. It visualizes how media and consumer culture distort urban experience, transforming cities into branded, image-driven spectacles detached from direct reality.
+    </p>
+  </section>
 
 
 
