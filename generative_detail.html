@@ -171,6 +171,66 @@
       margin-bottom: 30px;
     }
 
+    .image-duo {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;        /* ✅ 가로 전체 사용 */
+      max-width: none;    /* ✅ 제한 해제 */
+      padding: 0;         /* ✅ 여백 제거 */
+      margin: 0 auto;     /* 가운데 정렬 유지 */
+    }
+
+    .image-duo img {
+      width: auto;         /* ✅ 각 이미지가 절반씩 차지 (간격 감안) */
+      height: 500px;
+      object-fit: cover;
+      border-radius: 0;
+      display: block;         /* 🔻 inline 요소 여백 제거 */
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-top: 0;
+      margin-bottom: 50px;
+      font-style: italic;
+    }
+
+    .video-trio {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .video-trio video {
+      width: 32%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .single-video {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 20px 0 60px;
+    }
+
+    .single-video video {
+      width: 96%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 4px;
+    }
+
+
+
+
   </style>
 </head>
 <body>
@@ -218,6 +278,41 @@
       <strong><em>Should we design architecture as a finished product, or as an evolving system in progress?</em></strong>
     </p>
   </section>
+
+  <div class="image-duo">
+    <img src="https://wooksungl.github.io/wooks-portfolio/image/project5/Generative_1.png" alt="Wide Graphic">
+    <img src="https://wooksungl.github.io/wooks-portfolio/image/project5/Generative_2.png" alt="Tall Diagram">
+  </div>
+
+  <div class="caption">
+    Initial Design as Discoures Approach
+  </div>
+
+  <div class="video-trio">
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_5.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="single-video">
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_4.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="caption">
+    Project 1 - Designed at SCI-ARC
+  </div>
+
 
 
     <footer>
