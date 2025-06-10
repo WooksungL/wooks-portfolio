@@ -228,7 +228,20 @@
       border-radius: 4px;
     }
 
+    .video-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
 
+    .video-row video {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
 
 
   </style>
@@ -311,6 +324,42 @@
   </div>
   <div class="caption">
     Project 1 - Designed at SCI-ARC
+  </div>
+
+  <div class="video-row">
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_7.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_6.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="video-row">
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_8.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_9.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="single-video">
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_10.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="single-video">
+    <video autoplay muted loop playsinline>
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_11.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="caption">
+    Project 2 - Designed at San Pedro Site
   </div>
 
 
