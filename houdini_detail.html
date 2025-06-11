@@ -145,6 +145,49 @@
       color: #aaa;
     }
 
+    .image-text-split {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 50px auto;
+      max-width: 1300px;
+      padding: 0 20px;
+      flex-wrap: wrap; /* 👉 모바일 대응 */
+    }
+
+    .image-side {
+      flex: 6.5;
+      min-width: 350px;
+    }
+
+    .image-side img {
+      width: 100%;
+      max-width: none;  /* ← 기존보다 크게! */
+      height: auto;
+      border-radius: 6px;
+      display: block; /* ✅ 이것이 중요합니다 */
+    }
+
+    .text-side {
+      flex: 3.5;
+      min-width: 260px;
+      color: #ccc;
+      margin-top: 0; /* ⬅ 혹시라도 여백 있으면 제거 */
+    }
+
+    .text-side h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .text-side p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+
   </style>
 </head>
 <body>
@@ -173,12 +216,22 @@
       </div>
     </section>
 
+    <section class="image-text-split">
+      <div class="image-side">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/1.png" alt="Houdini Visual">
+      </div>
+      <div class="text-side">
+        <h2>Procedural Verticality: Data-Driven Structures in Houdini</h2>
+        <p>
+          This scene illustrates a procedural architecture experiment in Houdini, where vertical forms are generated based on attribute-controlled point data. Using VEX scripting inside an Attribute Wrangle, the system defines polylines that rise along the Y-axis from point positions, creating dense, data-driven vertical extrusions. The network on the right reveals a structured approach combining volume trails, point replication, and VDB processing to translate spatial logic into geometry. Rather than modeling predefined shapes, this method enables architecture to emerge as a dynamic response to spatial parameters. It reflects a shift from static form-making to generative spatial thinking—treating code as a tool for structural logic.
+        </p>
+      </div>
+    </section>
+
+
 
   <div class="container">
     <div class="project-media">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/1.jpg" alt="Digital Architecture Image 1">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/2.jpg" alt="Digital Architecture Image 2">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/3.jpg" alt="Digital Architecture Image 3">
     </div>
 
     <footer>
