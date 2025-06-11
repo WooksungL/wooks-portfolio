@@ -8,9 +8,51 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #0a0a0a;
+      background-color: #000000;
       color: #f0f0f0;
       font-family: 'Helvetica Neue', sans-serif;
+      overflow-x: hidden; /* 👉 수평 스크롤 방지 */
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(50%);
+      z-index: 0;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin: 0;
+      color: #fff;
+    }
+
+    .hero-text p {
+      font-size: 1.5rem;
+      color: #ccc;
+      margin-top: 20px;
     }
 
     .container {
@@ -21,7 +63,7 @@
 
     .back-link {
       display: block;
-      margin-bottom: 40px;
+      margin: 30px 20px 0;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
@@ -73,16 +115,19 @@
 </head>
 <body>
 
-  <div class="container">
-    <a href="index.html#works" class="back-link">← Back to Portfolio</a>
+  <a href="index.html#works" class="back-link">← Back to Portfolio</a>
 
-    <h1>Houdini Systematic</h1>
-    <p class="sub">Architecture, Technology, Experiments, 2025</p>
-
-    <div class="project-description">
-      Digital Architecture is a speculative exploration of digitally fabricated form and environmental simulation. This project visualizes the collision of machine logic and spatial intuition, blending computational workflows with architectural storytelling.
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749599278/Comp_1_dxv4im.mp4" type="video/mp4">
+    </video> <!-- ✅ video 태그 닫힘 -->
+    <div class="hero-text">
+      <h1>Houdini Systematic</h1>
+      <p>Architecture, Technology, Experiments, 2025</p>
     </div>
+  </section>
 
+  <div class="container">
     <div class="project-media">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/1.jpg" alt="Digital Architecture Image 1">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/2.jpg" alt="Digital Architecture Image 2">
