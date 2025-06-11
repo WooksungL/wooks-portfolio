@@ -215,6 +215,31 @@
       }
     }
 
+    .single-video-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .single-video-wrap video {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #aaa;
+      margin-top: 0;
+      margin-bottom: 50px;
+      font-style: italic;
+    }
+
 
 
   </style>
@@ -260,13 +285,22 @@
     <section class="image-grid-3x2">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/2.jpg" alt="Image 1">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/3.jpg" alt="Image 2">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/5.jpg" alt="Image 3">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/4.jpg" alt="Image 4">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/4.jpg" alt="Image 3">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/5.jpg" alt="Image 4">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/6.jpg" alt="Image 5">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/7.jpg" alt="Image 6">
     </section>
 
+    <div class="single-video-wrap">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749599278/Comp_1_dxv4im.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
+    <div class="caption">
+      Organic Architecture in Houdini
+    </div>
 
 
   <div class="container">
