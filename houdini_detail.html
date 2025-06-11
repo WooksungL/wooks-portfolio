@@ -187,6 +187,35 @@
       line-height: 1.7;
     }
 
+    .image-grid-3x2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3개씩 한 줄 */
+      gap: 20px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .image-grid-3x2 img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .image-grid-3x2 {
+        grid-template-columns: repeat(2, 1fr); /* 태블릿 이하에서 2개씩 */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-grid-3x2 {
+        grid-template-columns: 1fr; /* 모바일에서는 한 줄에 1개 */
+      }
+    }
+
+
 
   </style>
 </head>
@@ -227,6 +256,16 @@
         </p>
       </div>
     </section>
+
+    <section class="image-grid-3x2">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/2.jpg" alt="Image 1">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/3.jpg" alt="Image 2">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/5.jpg" alt="Image 3">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/4.jpg" alt="Image 4">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/6.jpg" alt="Image 5">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/7.jpg" alt="Image 6">
+    </section>
+
 
 
 
