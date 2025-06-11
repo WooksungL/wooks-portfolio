@@ -111,6 +111,40 @@
       color: #555;
       margin: 40px 0;
     }
+
+    .split-description {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 350px;
+      padding: 50px 10%;
+      color: #ccc;
+      margin-bottom: 0; /* 👈 글 설명 아래 여백 추가 */
+    }
+
+    .left-block {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .right-block {
+      flex: 2;
+      min-width: 300px;
+      line-height: 1.7;
+      margin-top: 5px; /* ← 이 값을 조절하면 내려가는 높이가 바뀝니다 */
+    }
+
+    .left-block h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .left-block .date {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
   </style>
 </head>
 <body>
@@ -126,6 +160,19 @@
       <p>Architecture, Technology, Experiments, 2025</p>
     </div>
   </section>
+
+  <section class="split-description white-section">
+      <div class="left-block">
+        <h2>Houdini Systematic</h2>
+        <p class="date">Architecture<br>Technology<br>Experiments<br>2025<br><br>Houdini, Python, Unreal Engine, Blender</p>
+      </div>
+      <div class="right-block">
+        <p>
+          This project explores architecture not through conventional industry tools, but through alternative software environments that offer more dynamic and systemic possibilities.<br>By leveraging Houdini's procedural logic and simulation capabilities, the work repositions architectural design as a system of emergent behavior, rather than static form-making. The intent was not simply to use unfamiliar software, but to reveal the architectural agency embedded within it—how flows, parameters, and procedural rules can drive form in ways traditional CAD tools cannot.<br>Through this shift, the project questions what architecture can become when treated as a computational system—one that is iterative, rule-based, and deeply integrated with code. The result is a speculative yet structured design language, built not from orthographic control, but from generative systems thinking.
+        </p>
+      </div>
+    </section>
+
 
   <div class="container">
     <div class="project-media">
