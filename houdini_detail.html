@@ -251,7 +251,7 @@
     }
 
     .image-duo-below-video img {
-      width: 38%;
+      width: 48%;
       height: auto;
       border-radius: 6px;
       object-fit: cover;
@@ -290,6 +290,50 @@
       font-style: italic;
 
     }
+
+    .closing-image {
+      width: 100%;
+      max-width: 1000px;
+      margin: 40px auto 20px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .closing-image img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    }
+
+    .text-section {
+      max-width: 800px;
+      margin: 5px auto;
+      padding: 0 20px;
+      color: #f0f0f0;
+    }
+
+    .text-section h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .text-section hr {
+      border: none;
+      border-top: 1px solid #777;
+      margin-bottom: 30px;
+    }
+
+    .text-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+
 
 
 
@@ -395,10 +439,34 @@
       </p>
     </div>
 
-
-  <div class="container">
-    <div class="project-media">
+    <div class="closing-image">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/8.png" alt="Final Architecture Render">
     </div>
+
+    <!-- 마무리 섹션: 비디오 -->
+    <div class="single-video-wrap">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project6/port.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <section class="text-section">
+      <h2>Architecture as System: Designing Beyond Form into Structure and Narrative</h2>
+      <hr>
+      <p>
+        This project explores a fully procedural architectural workflow in Houdini, generating and deconstructing components such as walls, slabs, columns, and structural frames through autonomous logic networks.
+      </p>
+      <p>
+        Each system operates with distinct rules—driven by attributes, remapping, and dynamic fragmentation—allowing for controlled complexity and emergent spatial behavior. 
+      </p>
+      <p>
+        The pipeline culminates in animation caching and FBX output, enabling integration into broader production environments. This approach moves beyond static outcomes, treating architecture as a designed system of interactions.
+      </p>
+      <p style="font-size: 1.3rem;">
+        <strong><em>Should architectural design not only shape form, but also technically orchestrate systems that carry richer and more diverse narratives?</em></strong>
+      </p>
+    </section>
 
     <footer>
       © Wooksung Lee — All rights reserved.
