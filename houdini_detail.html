@@ -240,6 +240,56 @@
       font-style: italic;
     }
 
+    .image-duo-below-video {
+      display: flex;
+      justify-content: center;   /* ✅ 가로 가운데 정렬 */
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto;          /* ✅ 가운데 배치 */
+    }
+
+    .image-duo-below-video img {
+      width: 38%;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .caption-text {
+      max-width: 900px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #ccc;
+      text-align: center;
+    }
+
+    .img-caption-block {
+      flex: 1 1 48%;
+      max-width: 48%;
+      text-align: center;
+    }
+
+    .img-caption-block img {
+      width: 100%;
+      max-width: 600px;     /* ✅ 적절한 최대 너비 설정 */
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #aaa;
+      font-style: italic;
+    }
+
+
 
 
   </style>
@@ -300,6 +350,47 @@
 
     <div class="caption">
       Organic Architecture in Houdini
+    </div>
+
+    <div class="image-duo-below-video">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/2.png" alt="Procedural Image 1">
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/3.png" alt="Procedural Image 2">
+    </div>
+
+    <div class="caption-text">
+      <p>
+        This system uses VEX-based vertical tracing and voxel processing to generate structurally driven geometry.
+        <br>Volume attributes are remapped to isolate fragmentation zones, enabling precise blast and extrusion control.
+        <br>The result is a procedural framework that fuses spatial logic with programmable fracture behavior.
+      </p>
+    </div>
+
+    <div class="image-duo-below-video">
+      <div class="img-caption-block">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/4.png" alt="Procedural Image 1">
+        <p class="caption">Structures</p>
+      </div>
+      <div class="img-caption-block">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/5.png" alt="Procedural Image 2">
+        <p class="caption">Columns</p>
+      </div>
+    </div>
+
+    <div class="image-duo-below-video">
+      <div class="img-caption-block">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/6.png" alt="Procedural Image 3">
+        <p class="caption">Slabs</p>
+      </div>
+      <div class="img-caption-block">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project6/7.png" alt="Procedural Image 4">
+        <p class="caption">Interior Structures</p>
+      </div>
+    </div>
+
+    <div class="caption-text">
+      <p>
+        This series showcases high-density system design experiments using Houdini. Each node controls the data flow of specific architectural components, organizing hierarchical relationships and division logic through code-based processes. Elements such as columns, slabs, and interior walls are precisely positioned using Attribute Wrangle and Ray SOPs, while Boolean and Connectivity operations manage destructive details and spatial interactions. This complex system decomposes intricate forms into modular units and reassembles them into a unified structure. The entire setup is visually organized at the UI level, offering a scalable framework ideal for large-scale procedural architectural design.
+      </p>
     </div>
 
 
