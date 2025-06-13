@@ -243,6 +243,36 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
+    .video-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .video-caption-block {
+      width: 32%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .video-caption-block video {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .video-caption {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+
 
   </style>
 </head>
@@ -293,23 +323,32 @@
   </div>
 
   <div class="video-trio">
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_2.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_5.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_3.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-caption-block">
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777520/Gen_2_ekbv13.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption">Generative Form through Coding</p>
+    </div>
+    <div class="video-caption-block">
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777532/Gen_5_fcbhjm.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption">Plan to Building : Generative Progression</p>
+    </div>
+    <div class="video-caption-block">
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777763/Gen_3_fmkuqk.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption">Architectural Components Breakdown</p>
+    </div>
   </div>
 
   <div class="single-video">
     <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_4.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777809/Gen_4_fesqtt.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -318,35 +357,53 @@
   </div>
 
   <div class="video-row">
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_7.mp4" type="video/mp4">
-    </video>
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_6.mp4" type="video/mp4">
-    </video>
+    <div>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777701/Gen_7_lpmd2g.mp4" type="video/mp4">
+      </video>
+      <p class="video-caption">Process Study</p>
+    </div>
+    <div>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777800/Gen_6_jvc9ht.mp4" type="video/mp4">
+      </video>
+      <p class="video-caption">AI-Driven Architectural Proposal</p>
+    </div>
   </div>
 
   <div class="video-row">
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_8.mp4" type="video/mp4">
-    </video>
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_9.mp4" type="video/mp4">
-    </video>
+    <div>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777808/Gen_8_k3twhk.mp4" type="video/mp4">
+      </video>
+      <p class="video-caption">Interior Typologies: Botanical Garden, Aquarium, Art Gallery, and Office</p>
+    </div>
+    <div>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777832/Gen_9_bgotlz.mp4" type="video/mp4">
+      </video>
+      <p class="video-caption">Gallery Interior Detail</p>
+    </div>
   </div>
 
   <div class="single-video">
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_10.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777879/Gen_10_jire5p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption"></p>
+    </div>
   </div>
 
   <div class="single-video">
-    <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Gen_11.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div>
+      <video autoplay muted loop playsinline>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749777886/Gen_11_vu7s3a.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption"></p>
+    </div>
   </div>
 
   <div class="caption">
