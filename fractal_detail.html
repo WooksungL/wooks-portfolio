@@ -5,12 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Architecture – Wooks Portfolio</title>
   <style>
-    body {
+     body {
       margin: 0;
       padding: 0;
-      background-color: #0a0a0a;
+      background-color: #000000;
       color: #f0f0f0;
       font-family: 'Helvetica Neue', sans-serif;
+      overflow-x: hidden; /* 👉 수평 스크롤 방지 */
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(50%);
+      z-index: 0;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin: 0;
+      color: #fff;
+    }
+
+    .hero-text p {
+      font-size: 1.5rem;
+      color: #ccc;
+      margin-top: 20px;
     }
 
     .container {
@@ -21,7 +63,7 @@
 
     .back-link {
       display: block;
-      margin-bottom: 40px;
+      margin: 30px 20px 0;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
@@ -69,20 +111,71 @@
       color: #555;
       margin: 40px 0;
     }
+
+    .split-description {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 350px;
+      padding: 50px 10%;
+      color: #ccc;
+      margin-bottom: 0; /* 👈 글 설명 아래 여백 추가 */
+    }
+
+    .left-block {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .right-block {
+      flex: 2;
+      min-width: 300px;
+      line-height: 1.7;
+      margin-top: 5px; /* ← 이 값을 조절하면 내려가는 높이가 바뀝니다 */
+    }
+
+    .left-block h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .left-block .date {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <a href="index.html#works" class="back-link">← Back to Portfolio</a>
+  <a href="index.html#works" class="back-link">← Back to Portfolio</a>
 
-    <h1>Fractal / Vectron</h1>
-    <p class="sub">Computational Design, Technology, Experiments, 2023</p>
-
-    <div class="project-description">
-      Digital Architecture is a speculative exploration of digitally fabricated form and environmental simulation. This project visualizes the collision of machine logic and spatial intuition, blending computational workflows with architectural storytelling.
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749596051/S_bhoheh.mp4" type="video/mp4">
+    </video> <!-- ✅ video 태그 닫힘 -->
+    <div class="hero-text">
+      <h1>Fractal / Vectron</h1>
+      <p>Computational Design, Technology, Experiments, 2023</p>
     </div>
+  </section>
 
+  <section class="split-description white-section">
+    <div class="left-block">
+      <h2>Fractal / Vectron</h2>
+      <p class="date">Computational Design<br>Technology<br>Experiments<br>2025<br><br>Cinema 4D, Python, Adobe Creative</p>
+    </div>
+    <div class="right-block">
+      <p>
+        This project is a study of form stripped of function, scale, or purpose—an inquiry into the recursive logic of fractals as self-contained systems. Using Vectron’s field-based operations, the process isolates the pure mechanics of repetition and transformation, where each detail is a mirror of the whole. Rather than designing an object, it reveals a structure that is already complete—perfect in its symmetry, infinite in its resolution, and untouched by utility.
+      </p>
+    </div>
+  </section>
+
+
+
+  <div class="container">
     <div class="project-media">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/1.jpg" alt="Digital Architecture Image 1">
       <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/2.jpg" alt="Digital Architecture Image 2">
