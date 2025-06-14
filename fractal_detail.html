@@ -130,7 +130,7 @@
       flex: 2;
       min-width: 300px;
       line-height: 1.7;
-      margin-top: 5px; /* ← 이 값을 조절하면 내려가는 높이가 바뀝니다 */
+      margin-top: 20px; /* ← 이 값을 조절하면 내려가는 높이가 바뀝니다 */
     }
 
     .left-block h2 {
@@ -144,6 +144,43 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    .mandlebulb-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      flex-wrap: wrap; /* 모바일 대응 */
+    }
+
+    .mandlebulb-left {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .mandlebulb-left h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: #f0f0f0;
+    }
+
+    .mandlebulb-left img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .mandlebulb-right {
+      flex: 2;
+      min-width: 300px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
 
   </style>
 </head>
@@ -164,7 +201,7 @@
   <section class="split-description white-section">
     <div class="left-block">
       <h2>Fractal / Vectron</h2>
-      <p class="date">Computational Design<br>Technology<br>Experiments<br>2025<br><br>Cinema 4D, Python, Adobe Creative</p>
+      <p class="date">Computational Design<br>Technology<br>Experiments<br>2025<br><br>Cinema 4D, Open Shading Language,<br> Adobe Creative</p>
     </div>
     <div class="right-block">
       <p>
@@ -173,14 +210,24 @@
     </div>
   </section>
 
+  <section class="mandlebulb-section">
+    <div class="mandlebulb-left">
+      <h3>1. Mandlebulb</h3>
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/Mandlebulb_Main_0150.png" alt="Mandlebulb Artwork">
+    </div>
+    <div class="mandlebulb-right">
+      <p>
+        The Mandelbulb geometry shown here is generated using a custom OSL shader that iteratively transforms points in 3D space based on polar coordinate manipulation and power-based scaling. Each iteration remaps the position vector through non-linear angular distortion, creating infinitely recursive surface detail. This method visualizes a 3D analog of the Mandelbrot set, revealing how complexity emerges from minimal parametric logic.
+      </p>
+    </div>
+  </section>
+
+
 
 
   <div class="container">
-    <div class="project-media">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/1.jpg" alt="Digital Architecture Image 1">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/2.jpg" alt="Digital Architecture Image 2">
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/3.jpg" alt="Digital Architecture Image 3">
-    </div>
+
+  </div>
 
     <footer>
       © Wooksung Lee — All rights reserved.
