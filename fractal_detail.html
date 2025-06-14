@@ -146,40 +146,48 @@
     }
 
     .mandlebulb-section {
+      padding: 60px 20px;
+    }
+
+    .mandlebulb-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .mandlebulb-flex {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      flex-wrap: wrap;
       gap: 40px;
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 0 20px;
-      flex-wrap: wrap; /* 모바일 대응 */
+      align-items: flex-start;
     }
 
     .mandlebulb-left {
-      flex: 1;
-      min-width: 300px;
+      flex: 0 0 600px;
     }
 
-    .mandlebulb-left h3 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      color: #f0f0f0;
+    .mandlebulb-images-row {
+      display: flex;
+      gap: 30px;
     }
 
-    .mandlebulb-left img {
-      width: 100%;
+    .mandlebulb-images-row img {
+      width: 380px;
+      height: auto;
       border-radius: 6px;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      object-fit: cover;
     }
 
     .mandlebulb-right {
-      flex: 2;
-      min-width: 300px;
+      flex: 1;
+      color: #ccc;
       font-size: 1rem;
       line-height: 1.8;
-      color: #ccc;
+      margin-top: 100px;
     }
+
 
 
   </style>
@@ -211,16 +219,23 @@
   </section>
 
   <section class="mandlebulb-section">
-    <div class="mandlebulb-left">
-      <h3>1. Mandlebulb</h3>
-      <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/Mandlebulb_Main_0150.png" alt="Mandlebulb Artwork">
-    </div>
-    <div class="mandlebulb-right">
-      <p>
-        The Mandelbulb geometry shown here is generated using a custom OSL shader that iteratively transforms points in 3D space based on polar coordinate manipulation and power-based scaling. Each iteration remaps the position vector through non-linear angular distortion, creating infinitely recursive surface detail. This method visualizes a 3D analog of the Mandelbrot set, revealing how complexity emerges from minimal parametric logic.
-      </p>
+    <h3 class="mandlebulb-title">1. Mandlebulb</h3>
+    <div class="mandlebulb-flex">
+      <div class="mandlebulb-left">
+        <div class="mandlebulb-images-row">
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/Mandlebulb_Main_0150.png" alt="Mandlebulb Geometry">
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/1.png" alt="OSL Shader Code">
+        </div>
+      </div>
+      <div class="mandlebulb-right">
+        <p>
+          The Mandelbulb geometry shown here is generated using a custom OSL shader that iteratively transforms points in 3D space based on polar coordinate manipulation and power-based scaling. Each iteration remaps the position vector through non-linear angular distortion, creating infinitely recursive surface detail. This method visualizes a 3D analog of the Mandelbrot set, revealing how complexity emerges from minimal parametric logic.
+        </p>
+      </div>
     </div>
   </section>
+
+
 
 
 
