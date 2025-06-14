@@ -188,6 +188,38 @@
       margin-top: 100px;
     }
 
+    .mandlebulb-video {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .mandlebulb-video video {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .mandlebulb-video-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .video-block {
+      flex: 1 1 480px;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .video-block video {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
 
 
   </style>
@@ -235,6 +267,14 @@
     </div>
   </section>
 
+  <div class="mandlebulb-video">
+    <video autoplay muted loop playsinline controls>
+      <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749883347/Comp_1_1_u3q4i8.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+
   <section class="mandlebulb-section">
     <h3 class="mandlebulb-title">1. Mandlebulb</h3>
     <div class="mandlebulb-flex">
@@ -251,6 +291,22 @@
       </div>
     </div>
   </section>
+
+  <div class="mandlebulb-video-row">
+    <div class="video-block">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784612/Mandelbulb_Main_kyhtg8.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-block">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784823/final_12_v6g4ye.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
 
 
 
