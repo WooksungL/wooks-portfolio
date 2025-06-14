@@ -205,7 +205,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      margin-top: 60px;
+      margin-top: 0;
     }
 
     .video-block {
@@ -260,14 +260,14 @@
     }
 
     .video-column-section {
-      padding: 60px 5%;
+      padding: 30px 5%;
     }
 
     .single-video-wrap {
       width: 100%;
       display: flex;
       justify-content: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .single-video-wrap video {
@@ -294,7 +294,31 @@
       }
     }
 
+    .text-section {
+      max-width: 800px;
+      margin: 5px auto;
+      padding: 0 20px;
+      color: #f0f0f0;
+    }
 
+    .text-section h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .text-section hr {
+      border: none;
+      border-top: 1px solid #777;
+      margin-bottom: 30px;
+    }
+
+    .text-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
 
 
 
@@ -385,7 +409,7 @@
 
   <section class="menger-section">
     <div class="menger-left">
-      <h3>2. Menger Fractal</h3>
+      <h3>2. Menger Sponge</h3>
       <div class="menger-images">
         <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/Menger Sponge_Main_0150.png" alt="Menger Fractal Render">
         <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/2.png" alt="Menger Code 1">
@@ -411,18 +435,76 @@
     </div>
   </section>
 
+  <section class="menger-section">
+    <div class="menger-left">
+      <h3>3. Quaternion Julia</h3>
+      <div class="menger-images">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/Quaternion Julia0000.png" alt="Menger Fractal Render">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/3.png" alt="Menger Code 1">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/3-1.png" alt="Menger Code 2">
+      </div>
+    </div>
+    <div class="menger-right">
+      <p>
+        This code defines a high-level field evaluation system used in Vectron-based procedural rendering. It implements vector operations, rotation matrix construction (mat3, mat4), and divergence functions that recursively transform space. Through iterative field sampling and coordinate re-orientation, the system visualizes self-similar and structurally intricate 3D fractals with high symmetry and resolution.</p>
+    </div>
+  </section>
 
-
-
-
-
-
-
-
-
-  <div class="container">
-
+  <div class="mandlebulb-video-row">
+    <div class="video-block">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784657/Comp_3_w1nez3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-block">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784770/1_Main_2_fpod7c.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
+
+  <section class="menger-section">
+    <div class="menger-left">
+      <h3>4. Sierpinski Octa</h3>
+    </div>
+  </section>
+
+   <section class="video-column-section">
+    <div class="single-video-wrap">
+      <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784751/Sierpinski_Octa_Main_thdxg3.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="single-video-wrap">
+      <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784735/Sierpinski_Icosa_Main_xupc0i.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="single-video-wrap">
+      <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749596051/S_bhoheh.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </section>
+
+  <section class="text-section">
+    <h2>Architecture as System: Designing Beyond Form into Structure and Narrative</h2>
+    <hr>
+    <p>
+      This project departs from traditional models of representation or utility and instead treats form as a recursive event—a pattern that encodes infinity within a finite resolution.
+    </p>
+    <p>
+      Using shader-based field systems, mathematical fractals, and volumetric operations such as SDF (Signed Distance Functions), it explores how code can become a sculptural logic. 
+    </p>
+    <p>
+      What emerges is not an object to be built or used, but a space to think through: a world of forms that are perfectly symmetrical, self-similar, and infinitely divisible.
+    </p>
+    <p>
+      Through this approach, the project invites a reconsideration of how we define creation—not as shaping matter, but as programming emergence.
+    </p>
+    <p style="font-size: 1.3rem;">
+      <strong><em>But if a form contains no function and no context—only itself—can it still be considered a meaningful creation?</em></strong>
+    </p>
+  </section>
+
+
+
 
     <footer>
       © Wooksung Lee — All rights reserved.
