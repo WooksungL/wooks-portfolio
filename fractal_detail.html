@@ -220,6 +220,82 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
+    .menger-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+      padding: 80px 5%;
+      align-items: flex-start;
+    }
+
+    .menger-left {
+      flex: 1 1 600px;
+    }
+
+    .menger-left h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .menger-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .menger-images img {
+      width: 30%;
+      min-width: 180px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    }
+
+    .menger-right {
+      flex: 1 1 300px;
+      max-width: 600px;
+      color: #ccc;
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-top: 150px;
+    }
+
+    .video-column-section {
+      padding: 60px 5%;
+    }
+
+    .single-video-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .single-video-wrap video {
+      width: 96%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    /* 태블릿 */
+    @media (max-width: 1024px) {
+      .video-grid video {
+        flex: 1 1 45%;
+        max-width: 100%;
+      }
+    }
+
+    /* 모바일 */
+    @media (max-width: 768px) {
+      .video-grid video {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+
+
+
 
 
   </style>
@@ -256,7 +332,7 @@
       <div class="mandlebulb-left">
         <div class="mandlebulb-images-row">
           <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/0.png" alt="Mandlebulb Geometry">
-          <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/0-1.png" alt="OSL Shader Code">
+          <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/0_1.png" alt="OSL Shader Code">
         </div>
       </div>
       <div class="mandlebulb-right">
@@ -306,6 +382,37 @@
       </video>
     </div>
   </div>
+
+  <section class="menger-section">
+    <div class="menger-left">
+      <h3>2. Menger Fractal</h3>
+      <div class="menger-images">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/Menger Sponge_Main_0150.png" alt="Menger Fractal Render">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/2.png" alt="Menger Code 1">
+        <img src="https://wooksungl.github.io/wooks-portfolio/image/project7/2-1.png" alt="Menger Code 2">
+      </div>
+    </div>
+    <div class="menger-right">
+      <p>
+        Generates a Menger-inspired fractal by modular repetition and spatial scaling. Smooth blending and sphere subtraction form an intricate, organic distance field.</p>
+    </div>
+  </section>
+
+
+  <section class="video-column-section">
+    <div class="single-video-wrap">
+      <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784632/Menger_Sponge_Main_1_lcxauv.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="single-video-wrap">
+      <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784708/Pathmarcher_Main_uqgjpo.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="single-video-wrap">
+      <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749784791/Z-depth_Z_f3jcki.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </section>
+
+
+
 
 
 
