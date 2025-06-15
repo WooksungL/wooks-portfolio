@@ -381,6 +381,103 @@
       border-radius: 4px;
     }
 
+    @media (max-width: 768px) {
+      .hero {
+        height: 50vh;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .split-description {
+        flex-direction: column;
+        padding: 30px 5%;
+        gap: 20px;
+      }
+
+      .description-image,
+      .large-only,
+      .large-only_1 {
+        width: 100% !important;
+      }
+
+      .part1-text,
+      .part2-text,
+      .part3-text {
+        margin-top: 40px;
+      }
+
+      .image-duo,
+      .image-duo_1,
+      .image-trio,
+      .image-trio_1,
+      .media-pair,
+      .image-video-wrap {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .image-duo img,
+      .image-duo_1 img,
+      .image-trio img,
+      .media-pair img,
+      .media-pair video,
+      .video-right video,
+      .image-grid,
+      .video-row video {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .image-grid {
+        display: block;
+      }
+
+      .video-row {
+        flex-direction: column;
+        padding: 0 10px;
+      }
+
+      .media-layout {
+        flex-direction: column;
+        padding: 0 20px;
+      }
+
+      .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .text-section h2,
+      .work-process-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .text-section p,
+      .work-process-section p {
+        font-size: 0.95rem;
+      }
+
+      .top-right-text {
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        font-size: 0.85rem;
+        max-width: 90%;
+      }
+
+      .back-link {
+        margin: 20px;
+        font-size: 0.85rem;
+      }
+    }
+
 
   </style>
 </head>
