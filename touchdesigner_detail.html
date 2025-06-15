@@ -161,6 +161,56 @@
       background: #000;
     }
 
+    .cellular-section {
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      margin-left: 40px;
+      font-size: 1.2rem;
+    }
+
+    .media-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 30px 0;
+    }
+
+    .media-row video,
+    .media-row img {
+      width: 45%;
+      max-width: 600px;
+      border-radius: 6px;
+      height: auto;
+      background: #000;
+    }
+
+    .cellular-description {
+      max-width: 900px;
+      margin: 20px auto 40px;
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .full-video-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .full-video-wrap video {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 6px;
+    }
+
+
 
   </style>
 </head>
@@ -194,6 +244,27 @@
     <div class="video-duo-with-audio">
       <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749947358/1_di8vk5.mp4" autoplay muted loop playsinline controls></video>
       <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749947352/2_kf0fqs.mp4" autoplay muted loop playsinline controls></video>
+    </div>
+  </section>
+
+  <section class="cellular-section">
+    <h3 class="section-title">2. Cellular Automata</h3>
+
+    <!-- 상단: 왼쪽 영상 + 오른쪽 이미지 -->
+    <div class="media-row">
+      <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749950635/1_pwnzvv.mp4" autoplay muted loop playsinline controls></video>
+      <img src="https://wooksungl.github.io/wooks-portfolio/image/project8/1.png" alt="Cellular Automata Visual">
+    </div>
+
+    <!-- 설명 문단 -->
+    <div class="cellular-description">
+      <p>
+        This project visualizes the life and decay of particles in a self-organizing system using a custom GLSL shader in TouchDesigner. The vertex shader reads cell data (alive, life, state) from a texture buffer, then positions and colors each particle in 3D space based on its state. The fragment shader performs real-time lighting calculations (Phong model) and integrates fog, alpha, and camera-based lighting. All visual behavior is fully GPU-accelerated and procedurally defined—there is no simulation in SOPs or TOPs. The result is a minimal, but computationally complete ecosystem rendered entirely on the graphics pipeline.</p>
+    </div>
+
+    <!-- 하단: 전체 너비 영상 하나 -->
+    <div class="full-video-wrap">
+      <video src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247621/final_cell_w37ngu.mp4" autoplay muted loop playsinline controls></video>
     </div>
   </section>
 
