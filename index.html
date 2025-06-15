@@ -785,9 +785,31 @@
               return aIndex - bIndex;
             });
 
-          sorted.forEach(p => grid.appendChild(p));
-        }
+          sorted.forEach(p => {
+            const title = p.querySelector('h3')?.textContent || '';
+            const spatialBox = p.querySelector('.spatial-box');
+            const spatialImageBox = p.querySelector('.spatial-image-box');
 
+            // 먼저 클래스 초기화
+            p.classList.remove('wide-project', 'full-width-project', 'enlarged');
+
+            // 다시 필요한 클래스 추가
+            if (title.includes('Superimposing')) {
+              p.classList.add('wide-project');
+            } else if (title.includes('Generative')) {
+              p.classList.add('full-width-project');
+            } else if (title.includes('Spatial')) {
+              p.classList.add('enlarged');
+              if (spatialBox && spatialImageBox) {
+                spatialBox.style.minHeight = '685px';
+                spatialImageBox.style.height = '685px';
+              }
+            }
+
+            grid.appendChild(p);
+          });
+        }
+        
         // ✅ Everything 순서 복구
         if (category === 'everything') {
           originalOrder.forEach(p => grid.appendChild(p));
