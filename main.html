@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wooks Portfolio</title>
+  <style>
+    /* 기본 설정 */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue';
+      background-color: #000000;
+      color: #f0f0f0;
+    }
+
+    /* 헤더 */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 60px 50px;
+    }
+
+    .logo a {
+    color: white;
+    text-decoration: none;
+    }
+
+    .logo a:hover {
+    opacity: 0.8;
+    }
+
+    .logo {
+      color : white;
+      font-weight: bold;
+      text-decoration: none;   /* 밑줄 제거 */
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .logo-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .intro-link,
+    .intro-link:visited {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .intro-link:hover {
+      opacity: 1;
+    }
+
+    .nav-menu a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      opacity: 1;
+    }
+
+    .highlight-red {
+      color: #ff4d4d; /* 또는 원하는 빨간색 코드 */
+    }
+
+    /* 인트로 섹션 */
+    .intro {
+      padding: 60px;
+      max-width: 800px;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .intro .date {
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    /* 필터 메뉴 */
+    .filter-menu {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      color: #888;
+    }
+
+    .filter-menu span {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .filter-menu span:hover,
+    .filter-menu .active {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* 포트폴리오 그리드 */
+    .portfolio {
+      padding: 60px;
+      display: block; /* 💡 column-count 제거 */
+    }
+
+    .project {
+      break-inside: avoid;
+    }
+
+    .project img {
+      width: auto;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+      transition: transform 0.3s ease;
+      margin-bottom: 10px;  /* (선택) 이미지 아래 여백 */
+    }
+
+    .project-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: transparent;
+
+      /* ✅ 삭제하거나 수정 */
+      /* height: 100%; */
+      /* min-height: 320px; */
+    }
+
+
+    .project-box:hover {
+      border: 2px solid #fff;
+      background-color: #fff;
+    }
+
+    .project-box img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .project-box:hover img {
+      transform: scale(1.02);
+    }
+
+    .caption {
+      padding: 1px 2px;
+      transition: color 0.3s ease;
+    }
+
+    .caption h3 {
+      font-size: 0.9rem;
+      margin: 0;
+      font-weight: 600;
+      color: #f0f0f0;
+      transition: color 0.3s ease;
+    }
+
+    .caption p {
+      font-size: 0.7rem;
+      margin: 2px 0 0;
+      color: #aaa;
+      transition: color 0.3s ease;
+    }
+
+    /* hover 시 텍스트 색상 변경 */
+    .project-box:hover .caption h3,
+    .project-box:hover .caption p {
+      color: #000;
+    }
+
+    .image-hover-box {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* 기본 이미지: static → 부모 높이 유지 */
+    .image-hover-box .main-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+
+    /* hover 이미지만 겹치기 */
+    .image-hover-box .hover-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    /* hover 시 전환 */
+    .project-box:hover .hover-image {
+      opacity: 1;
+    }
+
+    .project-box:hover .main-image {
+      opacity: 0;
+    }
+
+    .contact-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-box {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #0a0a0a;
+      padding: 8px 0;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .contact-box a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      padding: 2px 0;
+      transition: opacity 0.3s;
+    }
+
+    .contact-box a:hover {
+      opacity: 1;
+    }
+
+    .contact-box.show {
+      display: flex;
+    }
+    
+
+    /* Wide project layout 유지 */
+
+    .project.wide-project {
+      grid-column: 1 / span 2; /* 가운데부터 오른쪽까지 2칸 차지 */
+      grid-row: auto;
+      position: relative; /* 기존 absolute 제거 */
+      width: auto;
+      height: auto;
+      z-index: auto;
+    }
+
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: auto;
+      gap: 20px; /* 또는 20px */
+    }
+
+    .wide-project video {
+      max-height: 300px; /* 기존과 유사한 높이로 제한 */
+      height: 100%;
+    }
+
+    /* 새로운 그룹 wrapper 스타일 */
+    .project-row {
+      display: contents; /* Grid 내부에서 감싸는 역할만 */
+    }
+
+    .project.superimposing {
+      grid-column: 1 / span 2;
+    }
+
+    .project.seoul {
+      grid-column: 3;
+    }
+
+    .project.digital {
+      grid-column: 1;
+    }
+
+    .project.spatial {
+      grid-column: 2;
+    }
+
+
+    /* 비디오 기본 스타일 */
+    .main-video,
+    .hover-video {
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+
+    /* hover 전환 */
+    .hover-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      opacity: 0;
+    }
+
+    .project-box:hover .hover-video {
+      opacity: 1;
+    }
+
+    .project-box:hover .main-video {
+      opacity: 0;
+    }
+
+    .project.full-width-project {
+      width: 100%;
+      margin-top: 5px;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    .full-width-project {
+      grid-column: 1 / -1;
+    }
+
+    .full-width-project .project-box {
+      width: 100%;
+      max-width: 100%;
+      border: none;
+    }
+
+    .full-width-project video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .full-width-project .image-hover-box {
+      position: relative;
+      width: 100%;
+      height: 500px; /* 적절한 높이로 조절 가능 */
+      overflow: hidden;
+    }
+
+    .full-width-project .hover-video {
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .full-width-project:hover .hover-video {
+      opacity: 1;
+    }
+
+    .full-width-project:hover .main-video {
+      opacity: 0;
+    }
+
+    .project.spatial.enlarged {
+      grid-column: 2 / span 2;
+      grid-row: span 3;
+    }
+
+    .spatial-box {
+      height: auto;
+      background-color: transparent;
+      border: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .spatial-image-box {
+      width: 100%;
+      height: auto; /* 원하는 높이 조절 */
+      overflow: hidden;
+      position: relative;
+    }
+
+    .spatial-image-box img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .spatial-caption h3 {
+      color: #f0f0f0;
+      font-size: 1rem;
+    }
+
+    .spatial-caption p {
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    /* hover 효과 (선택 사항) */
+    .project-box:hover .spatial-image-box .main-image {
+      opacity: 0;
+    }
+
+    .project-box:hover .spatial-image-box .hover-image {
+      opacity: 1;
+    }
+
+    .spatial-image-box .main-image,
+    .spatial-image-box .hover-image {
+      transition: opacity 0.4s ease;
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 20px 30px;
+      }
+
+      .nav-menu {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .intro {
+        padding: 40px 20px;
+      }
+
+      .intro h1 {
+        font-size: 1.8rem;
+      }
+
+      .portfolio {
+        padding: 20px;
+      }
+
+      .grid-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .project.wide-project,
+      .project.full-width-project,
+      .project.spatial.enlarged {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .image-hover-box,
+      .spatial-image-box {
+        height: auto !important;
+      }
+
+      .spatial-box {
+        min-height: auto !important;
+      }
+
+      .caption h3 {
+        font-size: 1rem;
+      }
+
+      .caption p {
+        font-size: 0.75rem;
+      }
+
+      footer {
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo-group">
+      <a href="#" class="intro-link" onclick="goToIntro(); return false;">Intro</a>
+      <div class="logo">
+        <a href="https://wooksungl.github.io/wooks-portfolio/" onclick="location.reload(); return false;">
+          Wooks Portfolio
+        </a>
+      </div>
+    </div>
+    <nav class="nav-menu">
+      <a href="#works">Work</a>
+      <a href="info.html">Info</a>
+      <div class="contact-wrapper">
+        <a href="#contact" onclick="toggleContact(); return false;">Contact</a>
+        <div class="contact-box" id="contactBox">
+          <a href="mailto:leeur0668@gmail.com?subject=Portfolio%20Inquiry">Email</a>
+          <a href="https://www.instagram.com/cre___s/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  <section class="intro">
+    <h1>Wook's Creative <span class="highlight-red">Playground</span></h1>
+    <p class="date">2019 — 2025</p>
+    <p class="description">
+      Designing beyond the visible building ideas, 
+      not just objects form is a language I design to question.
+    </p>
+    <p class="description">Where design challenges the expected.</p>
+
+    <div class="filter-menu">
+      <span class="active">Everything.</span>
+      <span>Architecture</span>
+      <span>Design</span>
+      <span>AI Technology</span>
+      <span>Experiments</span>
+    </div>
+  </section>
+
+  <section class="portfolio" id="works">
+    <div class="grid-wrapper">
+      <div class="project-row" style="display: contents;">
+      <div class="project wide-project" data-category="AI Technology, Design, Architecture">
+        <a href="superimposing_detail.html" style="text-decoration: none;">
+        <div class="project-box">
+          <div class="image-hover-box">
+            <!-- Main video (default display) -->
+            <video class="main-video" autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749246234/Video1_new_rjr75x.mp4" type="video/mp4">
+            </video>
+            <!-- Hover video (shown on hover) -->
+            <video class="hover-video" muted autoplay loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749246380/Video2_slrrbj.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption">
+            <h3>Superimposing the Contemporary Global Context</h3>
+            <p>AI Technology, Design, Experimental Work, 2025</p>
+          </div>
+        </div>
+        </a>
+      </div>
+
+      <div class="project" data-category="Architecture">
+        <a href="digital_detail.html" style="text-decoration: none;">
+        <div class="project-box">
+          <div class="image-hover-box">
+            <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/5.jpg" class="main-image" alt="Project 1">
+            <img src="https://wooksungl.github.io/wooks-portfolio/image/project1/2.jpg" class="hover-image" alt="Project 1 Hover">
+          </div>
+          <div class="caption">
+            <h3>Digital Architecture</h3>
+            <p>Architectural Theory, Fabrication, 2022</p>
+          </div>
+        </div>
+        </a>
+      </div>
+
+      <div class="project"   data-category="Architecture">
+        <a href="seoul_detail.html" style="text-decoration: none;">
+        <div class="project-box">
+          <div class="image-hover-box">
+            <img src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/project_3_2.jpg" class="main-image" alt="Project 3">
+            <img src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/project_3_1.jpg" class="hover-image" alt="Project 3 Hover">
+          </div>
+          <div class="caption">
+            <h3>Seoul Network Behaviorology</h3>
+            <p>Architectural Design, Architectural Theory, 2019</p>
+          </div>
+        </div>
+        </a>
+      </div>
+
+      <div class="project spatial enlarged" data-category="Architecture">
+        <a href="spatial_detail.html" style="text-decoration: none;">
+        <div class="project-box spatial-box">
+          <div class="image-hover-box spatial-image-box">
+            <img src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/project_2_1.jpg" class="main-image" alt="Project 2">
+            <img src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/project_2_2.jpg" class="hover-image" alt="Project 2 Hover">
+          </div>
+          <div class="caption spatial-caption">
+            <h3>Spatial Reconstruction</h3>
+            <p>Architectural Design, Architectural Theory, 2021</p>
+          </div>
+        </div>
+        </a>
+      </div>
+      </div>
+
+      <div class="project full-width-project" data-category="Architecture, Design, AI Technology">
+        <a href="generative_detail.html" style="text-decoration: none;">
+        <div class="project-box">
+          <div class="image-hover-box">
+            <!-- Main video -->
+            <video class="main-video" autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247460/DiagramFinal_eimpg8.mp4" type="video/mp4">
+            </video>
+            <!-- Hover video -->
+            <video class="hover-video" autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247474/Fragment_RealFinal1_t7cux5.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption">
+            <h3>Generative Formations</h3>
+            <p>AI Technology, Architecture, Design, 2024</p>
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="project" data-category="Design, Experiments">
+        <a href="houdini_detail.html" style="text-decoration: none;">
+        <div class="project-box">
+          <div class="image-hover-box">
+            <!-- Main video -->
+            <video class="main-video" autoplay muted loop playsinline>
+              <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Port_Org.mp4" type="video/mp4">
+            </video>
+            <!-- Hover video -->
+            <video class="hover-video" autoplay muted loop playsinline>
+              <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/port.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption">
+            <h3>Houdini Systematic</h3>
+            <p>Architecture, Technology, Experiments, 2025</p>
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="project" data-category="Design, Experiments">
+        <a href="fractal_detail.html" style="text-decoration: none;">
+        <div class="project-box">
+          <div class="image-hover-box">
+            <video class="main-video" autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749596051/S_bhoheh.mp4" type="video/mp4">
+            </video>
+            <video class="hover-video" autoplay muted loop playsinline>
+              <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Pathmarcher.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption">
+            <h3>Fractal / Vectron</h3>
+            <p>Computational Design, Technology, Experiments, 2023</p>
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="project" data-category="Design, Experiments">
+        <a href="touchdesigner_detail.html" style="text-decoration: none;">
+        <div class="project-box">
+          <div class="image-hover-box">
+            <video class="main-video" autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247621/final_cell_w37ngu.mp4" type="video/mp4">
+            </video>
+            <video class="hover-video" autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dl2edfzpa/video/upload/v1749247633/2_vv2vz0.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="caption">
+            <h3>TouchDesigner Experiments</h3>
+            <p>Computational Design, Technology, Experiments, 2025</p>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+   <script>
+    function goToIntro() {
+      window.location.assign('https://wooksungl.github.io/wooks-portfolio/intro.html');
+    }
+  </script>
+
+  <script>
+    function toggleContact() {
+      const box = document.getElementById("contactBox");
+      box.classList.toggle("show");
+    }
+  </script>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-menu span');
+    const projects = document.querySelectorAll('.project');
+    const grid = document.querySelector('.grid-wrapper');
+
+    // 💡 초기 순서 기억
+    const originalOrder = Array.from(projects);
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.textContent.trim().toLowerCase().replace('.', '');
+
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        projects.forEach(project => {
+          const dataCategory = project.getAttribute('data-category')?.toLowerCase() || '';
+          const title = project.querySelector('h3')?.textContent || '';
+
+          const spatialBox = project.querySelector('.spatial-box');
+          const spatialImageBox = project.querySelector('.spatial-image-box');
+
+          if (category === 'everything') {
+            project.style.display = 'block';
+
+            if (title.includes('Superimposing')) {
+              project.classList.add('wide-project');
+            } else if (title.includes('Generative')) {
+              project.classList.add('full-width-project');
+            } else if (title.includes('Spatial')) {
+              project.classList.add('enlarged');
+              if (spatialBox && spatialImageBox) {
+                spatialBox.style.minHeight = '685px';
+                spatialImageBox.style.height = '685px';
+              }
+            } else {
+              project.classList.remove('wide-project', 'full-width-project', 'enlarged');
+            }
+          } else {
+            if (dataCategory.includes(category)) {
+              project.style.display = 'block';
+              project.classList.remove('wide-project', 'full-width-project', 'enlarged');
+              if (title.includes('Spatial') && spatialBox && spatialImageBox) {
+                spatialBox.style.minHeight = 'auto';
+                spatialImageBox.style.height = 'auto';
+              }
+            } else {
+              project.style.display = 'none';
+              project.classList.remove('wide-project', 'full-width-project', 'enlarged');
+            }
+          }
+        });
+
+        // ✅ Architecture 정렬
+        if (category === 'architecture') {
+          const priority = {
+            'Superimposing': 0,
+            'Digital': 1,
+            'Generative': 2,
+            'Spatial': 3,
+            'Seoul': 4
+          };
+
+          const sorted = Array.from(projects)
+            .filter(p => p.style.display !== 'none')
+            .sort((a, b) => {
+              const aTitle = a.querySelector('h3')?.textContent || '';
+              const bTitle = b.querySelector('h3')?.textContent || '';
+              const aIndex = Object.entries(priority).find(([k]) => aTitle.includes(k))?.[1] ?? 999;
+              const bIndex = Object.entries(priority).find(([k]) => bTitle.includes(k))?.[1] ?? 999;
+              return aIndex - bIndex;
+            });
+
+          sorted.forEach(p => {
+            const title = p.querySelector('h3')?.textContent || '';
+            const spatialBox = p.querySelector('.spatial-box');
+            const spatialImageBox = p.querySelector('.spatial-image-box');
+
+            // 먼저 클래스 초기화
+            p.classList.remove('wide-project', 'full-width-project', 'enlarged');
+
+            // 다시 필요한 클래스 추가
+            if (title.includes('Superimposing')) {
+              p.classList.add('wide-project');
+            } else if (title.includes('Generative')) {
+              p.classList.add('full-width-project');
+            } else if (title.includes('Spatial')) {
+              p.classList.add('enlarged');
+              if (spatialBox && spatialImageBox) {
+                spatialBox.style.minHeight = '685px';
+                spatialImageBox.style.height = '685px';
+              }
+            }
+
+            grid.appendChild(p);
+          });
+        }
+
+        // ✅ Everything 순서 복구
+        if (category === 'everything') {
+          originalOrder.forEach(p => grid.appendChild(p));
+        }
+      });
+    });
+  </script>
+
+
+
+  <footer style="background-color: #000; padding: 20px 60px; color: #f0f0f0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+  <div style="margin-bottom: 10px;">
+    <strong>Copyright © Wooksung Lee</strong>
+  </div>
+  
+  <div style="margin-bottom: 10px;">
+    <a href="mailto:leeur0668@gmail.com" style="color: #f0f0f0; text-decoration: none;">
+      ✉ leeur0668@gmail.com
+    </a>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <a href="https://www.instagram.com/cre___s/" target="_blank" style="color: #f0f0f0; text-decoration: none; font-size: 1.2rem;">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    Made in <strong>South Korea & Los Angeles in California</strong>
+  </div>
+</footer>
+
+
+</body>
+</html>
