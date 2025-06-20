@@ -196,6 +196,21 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
+    .video-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .video-row video {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+
     @media (max-width: 768px) {
       .hero {
         height: 50vh;
@@ -271,7 +286,7 @@
     <div class="left-block">
       <h2>Superimposing the Contemporary Global Context<br>(Work in Progress)</h2>
       <p class="date">AI Technology<br>Design<br>Experimental Work<br>2025<br><br>
-        TouchDesigner, AI, Adobe Creative, Python, Unreal Engine, Blender, Rhino
+        TouchDesigner, AI, Adobe Creative, Python, Unreal Engine, Blender, Rhino, Figma
       </p>
     </div>
     <div class="right-block">
@@ -341,13 +356,30 @@
     </p>
   </section>
 
+  <section class="video-row">
+    <figure style="text-align: center;">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0312.mp4" type="video/mp4">
+      </video>
+      <figcaption style="margin-top: 10px; color: #aaa;">Recording video of downtown Los Angeles</figcaption>
+    </figure>
+    <figure style="text-align: center;">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0628.mp4" type="video/mp4">
+      </video>
+       <figcaption style="margin-top: 10px; color: #aaa;">AI genertaed video</figcaption>
+    </figure>
+  </section>
 
-
-  <div class="container">
-    <div class="project-media">
-
-    </div>
+  <div style="text-align: center; margin-top: 30px;">
+    <figure>
+      <video autoplay muted loop playsinline controls style="width: 100%; max-width: 750px; border-radius: 8px;">
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0619.mp4" type="video/mp4">
+      </video>
+      <figcaption style="margin-top: 10px; color: #aaa;">3D Gaussian Splatting</figcaption>
+    </figure>
   </div>
+
 
 
     <footer>
