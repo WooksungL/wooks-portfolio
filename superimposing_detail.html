@@ -12,6 +12,13 @@
       --thumbColW: 260px;/* 썸네일 컬럼 폭(줄여서 오른쪽 영상 넓힘) */
       --radius: 14px;
       --pairH: 350px;
+      --superMainMax: 1200px;   /* 필요하면 1100~1300px 사이로 조절 */
+
+      /* K/J/E(아래 3개) 최대 폭 */
+      --superRowMax: 1680px;    /* 1500~1800px 추천 */
+
+      /* 섹션 좌우 패딩 */
+      --superPadX: 4vw;    /* 좌우 여백(작게 해서 더 넓어 보이게) */
       
       /* ▼ 5개 한 줄 스트립(더 크게, 간격은 더 촘촘하게) */
       --fiveH: 500px;    /* 필요시 360~420px 사이로 조절 */
@@ -178,11 +185,77 @@
       color:#aaa; font-size:.9rem; margin-top:8px;
     }
 
+    /* ===== Superimposed DTLA section ===== */
+    .super-section{
+      padding: 32px var(--superPadX) 24px;
+    }
+    .super-blurb{
+      max-width: 1000px;
+      margin: 0 auto 18px;
+      color: #ccc;
+      line-height: 1.75;
+    }
+    .super-blurb h3{
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f0f0f0;
+    }
+
+    /* 메인 비디오 (M1) – 가로 100%, 반응형 */
+    .super-main{
+      max-width: min(var(--superMainMax), 96vw);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .super-main video{
+      width: 100%;
+      height: auto;          /* 원본 비율 유지 */
+      display: block;
+      background: #000;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+    }
+
+    /* 하단 3개 (K, J, E) – 한 줄 배치, 반응형 그리드 */
+    .super-row{
+      max-width: min(var(--superRowMax), 96vw);
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px; /* 간격은 취향대로 */
+    }
+    .super-row figure{
+      margin: 0;
+    }
+    .super-row video{
+      width: 100%;
+      height: auto;          /* 원본 비율 유지 */
+      display: block;
+      background: #000;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.30);
+    }
+    .super-caption{
+      font-size: .95rem;
+      margin-top: 10px;
+    }
+
     footer{
       border-top:1px solid #222;
       margin-top:40px;
       padding:32px 20px 48px;
       color:#aaa; text-align:center; font-size:.85rem;
+    }
+
+    /* 모바일 대응 */
+    @media (max-width: 980px){
+      .super-row{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
     }
 
     /* --------------- Responsive --------------- */
@@ -364,7 +437,42 @@
       <figcaption>3D Gaussian Splatting</figcaption>
     </figure>
   </div>
-  <!-- ▲▲▲  복구 끝  ▲▲▲ -->
+
+  <!-- ===== Superimposed DTLA ===== -->
+  <section class="super-section">
+    <div class="super-blurb">
+      <h3>Superimposed DTLA</h3>
+      <p>
+        <br>
+        <strong>Superimposed DTLA</strong> is a moving collage that layers scenes from different blocks and cultures across Downtown Los Angeles.
+        Storefronts, transit flows, neon nights, and street life are composited into one frame so that districts overlap and speak at once.
+      </p>
+    </div>
+
+    <!-- 메인: M1(가장 크게) -->
+    <div class="super-main">
+      <figure>
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_M1.mp4" controls autoplay muted loop playsinline></video>
+        <figcaption class="super-caption"></figcaption>
+      </figure>
+    </div>
+
+    <!-- 하단: K, J, E (한 줄) -->
+    <div class="super-row">
+      <figure>
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_K.mp4" controls autoplay muted loop playsinline></video>
+        <figcaption class="super-caption">KOREA onto DTLA</figcaption>
+      </figure>
+      <figure>
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_J.mp4" controls autoplay muted loop playsinline></video>
+        <figcaption class="super-caption">JAPAN onto DTLA</figcaption>
+      </figure>
+      <figure>
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_E.mp4" controls autoplay muted loop playsinline></video>
+        <figcaption class="super-caption">EUROPE onto DTLA</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <footer>© Wooksung Lee — All rights reserved.</footer>
 
