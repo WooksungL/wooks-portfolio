@@ -22,6 +22,9 @@
       
       /* ▼ 5개 한 줄 스트립(더 크게, 간격은 더 촘촘하게) */
       --fiveH: 500px;    /* 필요시 360~420px 사이로 조절 */
+
+      --arH: 520px;         /* 여기 숫자만 조절하면 됨: 220~300px 추천 */
+
     }
 
     *{ box-sizing:border-box; }
@@ -317,6 +320,30 @@
       display:block;
     }
 
+    /* ---- AR strip: 4 inline videos in a single row ---- */
+    .ar-strip{
+      display: flex;
+      justify-content: center; /* 중앙 정렬 */
+      align-items: flex-end;
+      gap: 18px;               /* 카드 사이 간격 */
+      margin: 20px auto 0;     /* 가운데 배치 */
+      /* 아래 max-width는 대략 9:16 세로 영상 가정(폭/높이 ≈ 0.56) → 중앙 폭 고정에 도움 */
+      max-width: calc(4 * var(--arH) * 0.56 + 3 * 18px);
+      width: 100%;
+    }
+    .ar-strip::-webkit-scrollbar{ height: 8px; }
+    .ar-strip::-webkit-scrollbar-thumb{
+      background: #2b2b2b; border-radius: 8px;
+    }
+    .ar-strip video{
+      height: var(--arH);   /* 세로만 고정 → 가로는 비율에 맞춰 자동 */
+      width: auto;
+      display: block;
+      background: #000;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.30);
+    }
+
     /* 모바일에서는 1열로 */
     @media (max-width:700px){
       .afterimage-videos{
@@ -355,6 +382,16 @@
       .video-five{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
       :root{ --fiveH: 260px; }
     }
+
+    @media (max-width: 1200px){
+      :root{ --arH: 280px; }
+    }
+
+    @media (max-width: 980px){
+      .ar-strip{ flex-wrap: wrap; }  /* 화면이 좁아지면 줄바꿈 */
+      :root{ --arH: 220px; }         /* 모바일에서 살짝 더 작게 */
+    }
+
   </style>
 </head>
 <body>
@@ -570,6 +607,26 @@
       </div>
     </div>
   </section>
+
+  <div class="super-blurb tail">
+    <h3>AR Technology</h3>
+  </div>
+
+  <!-- ===== AR Preview Strip (4 inline videos) ===== -->
+  <section class="ar-strip" aria-label="AR previews">
+    <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/AR2.mp4"
+          autoplay muted loop playsinline controls></video>
+
+    <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/AR4.mp4"
+          autoplay muted loop playsinline controls></video>
+
+    <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/AR1.mp4"
+          autoplay muted loop playsinline controls></video>
+
+    <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/AR3.mp4"
+          autoplay muted loop playsinline controls></video>
+  </section>
+
 
   <footer>© Wooksung Lee — All rights reserved.</footer>
 
