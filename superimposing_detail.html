@@ -272,6 +272,59 @@
       color:#aaa; text-align:center; font-size:.85rem;
     }
 
+    /* ===== Afterimage (main vertical videos) ===== */
+    .afterimage-section{
+      padding: 36px var(--superPadX) 24px;
+    }
+
+    .afterimage-blurb{
+      max-width: 200px;
+      margin: 0 auto 18px;
+      color:#ccc;
+      line-height:1.75;
+    }
+    .afterimage-blurb h3{
+      margin:0 0 10px;
+      font-size:1.4rem;
+      font-weight:700;
+      color:#f0f0f0;
+    }
+
+    /* 세로형 비디오 2개 – 크게, 반응형 */
+    .afterimage-videos{
+      max-width: min(920px, 88vw);
+      margin: 8px auto 0;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:16px;
+      align-items:start;
+    }
+
+    /* 세로 비디오 특화: 큰 키, 여백 없이 꽉 차게(크롭 싫으면 contain) */
+    .afterimage-videos .vid-wrap{
+      background:#000;
+      border-radius:12px;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+
+    /* 세로 비디오: 크게 보이도록 세로 비율 고정 */
+    .afterimage-videos video{
+      width:100%;
+      aspect-ratio: 9 / 16;   /* 세로형 비율 */
+      height:auto;
+      object-fit:cover;       /* 전체를 보려면 contain 으로 바꿔도 됨 */
+      display:block;
+    }
+
+    /* 모바일에서는 1열로 */
+    @media (max-width:700px){
+      .afterimage-videos{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+    }
+
     /* 모바일 대응 */
     @media (max-width: 980px){
       .super-row{
@@ -472,7 +525,7 @@
     <!-- 메인: M1(가장 크게) -->
     <div class="super-main">
       <figure>
-        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_M1.mp4" controls autoplay muted loop playsinline></video>
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_M1.mp4" autoplay muted loop playsinline controls></video>
         <figcaption class="super-caption"></figcaption>
       </figure>
     </div>
@@ -480,15 +533,15 @@
     <!-- 하단: K, J, E (한 줄) -->
     <div class="super-row">
       <figure>
-        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_K.mp4" controls autoplay muted loop playsinline></video>
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_K.mp4" autoplay muted loop playsinline controls></video>
         <figcaption class="super-caption">KOREA onto DTLA</figcaption>
       </figure>
       <figure>
-        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_J.mp4" controls autoplay muted loop playsinline></video>
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_J.mp4" autoplay muted loop playsinline controls></video>
         <figcaption class="super-caption">JAPAN onto DTLA</figcaption>
       </figure>
       <figure>
-        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_E.mp4" controls autoplay muted loop playsinline></video>
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video_E.mp4" autoplay muted loop playsinline controls></video>
         <figcaption class="super-caption">EUROPE onto DTLA</figcaption>
       </figure>
     </div>
@@ -504,6 +557,19 @@
       Society of the Spectacle within the framework of contemporary urban aesthetics.
     </p>
   </div>
+
+  <section class="afterimage-section">
+    <div class="afterimage-videos">
+      <div class="vid-wrap">
+        <!-- TODO: 경로를 실제 배포 경로로 교체하세요 -->
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Aliso_realFinal.mp4" autoplay muted loop playsinline controls></video>
+      </div>
+      <div class="vid-wrap">
+        <!-- TODO: 경로를 실제 배포 경로로 교체하세요 -->
+        <video src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Keck1_Final.mp4" autoplay muted loop playsinline controls></video>
+      </div>
+    </div>
+  </section>
 
   <footer>© Wooksung Lee — All rights reserved.</footer>
 
