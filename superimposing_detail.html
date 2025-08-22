@@ -5,373 +5,397 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Architecture – Wooks Portfolio</title>
   <style>
-     body {
-      margin: 0;
-      padding: 0;
-      background-color: #000000;
-      color: #f0f0f0;
-      font-family: 'Helvetica Neue', sans-serif;
-      overflow-x: hidden; /* 👉 수평 스크롤 방지 */
+    /* ---------------- Base ---------------- */
+    :root{
+      --thumbH: 260px;   /* 썸네일 한 장 높이 */
+      --thumbGap: 18px;  /* 썸네일 사이 간격 (.act-thumbs의 gap과 동일) */
+      --thumbColW: 260px;/* 썸네일 컬럼 폭(줄여서 오른쪽 영상 넓힘) */
+      --radius: 14px;
+      --pairH: 350px;
+      
+      /* ▼ 5개 한 줄 스트립(더 크게, 간격은 더 촘촘하게) */
+      --fiveH: 500px;    /* 필요시 360~420px 사이로 조절 */
     }
 
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 80vh;
-      overflow: hidden;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0; padding:0;
+      background:#000; color:#f0f0f0;
+      font-family:'Helvetica Neue', Arial, sans-serif;
+      overflow-x:hidden;
     }
 
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(50%);
-      z-index: 0;
+    a.back-link{
+      display:block; margin:30px 20px 0;
+      font-size:.9rem; color:#aaa; text-decoration:none;
+    }
+    a.back-link:hover{ color:#fff; }
+
+    /* ---------------- Hero ---------------- */
+    .hero{ position:relative; width:100%; height:80vh; overflow:hidden; }
+    .hero video{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; filter:brightness(50%); z-index:0;
+    }
+    .hero-text{
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      z-index:1; text-align:center; color:#fff;
+    }
+    .hero-text h1{ margin:0; font-size:3.5rem; font-weight:700; }
+    .hero-text p{ margin-top:20px; font-size:1.5rem; color:#ccc; }
+
+    /* --------------- Intro split --------------- */
+    .split-description{
+      display:flex; flex-wrap:wrap; gap:100px;
+      padding:50px 10%; color:#ccc; align-items:flex-start;
+    }
+    .left-block{ flex:1; min-width:250px; }
+    .right-block{ flex:1; display:flex; align-items:center; justify-content:center; }
+    .right-block video{ width:100%; max-width:800px; border-radius:8px; }
+
+    /* --------------- 기본 작은 비디오 그리드(유지) --------------- */
+    .video-grid-section{ padding:20px 10%; }
+
+    /* ★ 5개 한 줄 스트립: 원본 비율 유지 + 더 크게 + 간격 줄임 */
+    .video-five{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0, 1fr));
+      gap:12px;                     /* ← 간격 줄임 */
+      align-items:center;
+    }
+    .video-five .slot{
+      height:var(--fiveH);          /* ← 크기 키움 */
+      border-radius:8px;
+      background:#000;
+      box-shadow:0 0 10px rgba(0,0,0,.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .video-five video{
+      height:100%;                  /* 세로 기준으로 꽉 채우고 */
+      width:auto;                   /* 가로는 자동 → 원본 비율 유지 */
+      max-width:100%;               /* 칼럼 너비 넘지 않게 */
+      object-fit:contain;           /* 크롭 없이 그대로 */
+      display:block;
     }
 
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      text-align: center;
-      color: white;
+    /* --------------- 텍스트 블록 --------------- */
+    .text-section{ max-width:1200px; margin:5px auto; padding:0 20px; }
+    .text-section h2{ font-size:2rem; font-weight:700; margin-bottom:10px; }
+    .text-section hr{ border:none; border-top:1px solid #777; margin-bottom:30px; }
+    .text-section p{ font-size:1rem; line-height:1.8; color:#ccc; margin-bottom:30px; }
+
+    /* --------------- “첫번째 사진” UI --------------- */
+    .act-media{ margin-top:6px; padding:24px 0 8px; }
+    .act-toolbar{ display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+    .act-toolbar h3{ margin:0 10px 0 0; }
+    .act-toolbar label{ color:#ccc; font-size:.95rem; }
+    .act-toolbar select{
+      background:#111; color:#f0f0f0; border:1px solid #333; border-radius:8px;
+      padding:8px 10px; font-size:.95rem;
     }
 
-    .hero-text h1 {
-      font-size: 3.5rem;
-      font-weight: bold;
-      margin: 0;
-      color: #fff;
+    .act-layout{
+      display:grid;
+      grid-template-columns: var(--thumbColW) minmax(0,1fr);
+      gap:20px;
+      align-items:start;
     }
 
-    .hero-text p {
-      font-size: 1.5rem;
-      color: #ccc;
-      margin-top: 20px;
+    .act-thumbs{ display:grid; gap:var(--thumbGap); }
+    .act-thumbs img{
+      width:100%;
+      height:var(--thumbH);
+      object-fit:cover;
+      border-radius:var(--radius); background:#111;
+      box-shadow:0 10px 26px rgba(0,0,0,.35);
+      display:block;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 0 20px;
+    .act-video-wrap{
+      width:100%;
+      height: calc(var(--thumbH) * 2 + var(--thumbGap));
+      background:#000;
+      border-radius:var(--radius); overflow:hidden;
+      box-shadow:0 20px 40px rgba(0,0,0,.45);
+      display:flex; align-items:center;
+    }
+    .act-video-wrap video{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block; background:#000;
     }
 
-    .back-link {
-      display: block;
-      margin: 30px 20px 0;
-      font-size: 0.9rem;
-      color: #aaa;
-      text-decoration: none;
+    .video-row.wide{
+      padding:0 10%;
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      align-items:flex-start;   /* ← stretch/flex-center 말고 위 기준 */
+      flex-wrap:wrap;
+      margin-top:12px;
     }
 
-    .back-link:hover {
-      color: white;
+    /* figure를 block으로 유지해서 비디오 위, 캡션 아래의 정상 흐름 */
+    .video-row.wide figure{
+      width:min(48%, 680px);
+      margin:0;
+      display:block;            /* ← flex 제거 */
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    /* 비디오에만 고정 높이/둥근 모서리/그림자 적용 */
+    .video-row.wide figure > video{
+      width:100%;
+      height:var(--pairH);      /* 두 영상 동일 높이 */
+      object-fit:cover;         /* 가득 채움(크롭 싫으면 contain) */
+      display:block;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 0 10px rgba(0,0,0,.4);
+      background:#000;
     }
 
-    .sub {
-      font-size: 0.9rem;
-      color: #aaa;
-      margin-bottom: 30px;
+    /* 캡션은 비디오 아래에 자연스럽게 */
+    .video-row.wide figcaption{
+      color:#aaa;
+      font-size:.9rem;
+      margin-top:8px;
+      text-align:center;
     }
 
-    .project-description {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #ccc;
-      margin-bottom: 50px;
+    .centered-vid{
+      text-align:center; margin:30px auto 0;
+      padding:0 10%;
+    }
+    .centered-vid video{
+      width:100%; max-width:780px; height:auto; display:inline-block;
+      border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,.4);
+      background:#000;
+    }
+    .centered-vid figcaption{
+      color:#aaa; font-size:.9rem; margin-top:8px;
     }
 
-    .project-media {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      margin-bottom: 60px;
+    footer{
+      border-top:1px solid #222;
+      margin-top:40px;
+      padding:32px 20px 48px;
+      color:#aaa; text-align:center; font-size:.85rem;
     }
 
-    .project-media img,
-    .project-media video {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
+    /* --------------- Responsive --------------- */
+    @media (max-width:1280px){
+      .video-five{ gap:10px; }
+      :root{ --fiveH: 360px; }  /* 살짝 낮춤 */
     }
-
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #555;
-      margin: 40px 0;
+    @media (max-width:1024px){
+      .video-five{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      :root{ --fiveH: 320px; }
     }
-
-    .split-description {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 100px;
-      padding: 50px 10%;
-      color: #ccc;
-      align-items: flex-start;
+    @media (max-width:768px){
+      .act-layout{ grid-template-columns:1fr; }
+      .act-thumbs{ grid-template-columns:1fr 1fr; }
+      .act-thumbs img{ height:180px; }
+      .act-video-wrap{ height:auto; }
+      .hero{ height:50vh; }
+      .hero-text h1{ font-size:1.8rem; }
+      .hero-text p{ font-size:1rem; }
+      .split-description{ flex-direction:column; padding:30px 5%; gap:30px; }
+      .text-section{ padding:0 16px; }
+      .video-five{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
+      :root{ --fiveH: 260px; }
     }
-
-    .left-block {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    .right-block {
-      flex: 1;
-      width: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .video-grid-section {
-      padding: 20px 10%;
-      background-color: #000;/
-    }
-
-    .video-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    .video-row video {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-
-    .text-section {
-      max-width: 800px;
-      margin: 5px auto;
-      padding: 0 20px;
-      color: #f0f0f0;
-    }
-
-    .text-section h2 {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .text-section hr {
-      border: none;
-      border-top: 1px solid #777;
-      margin-bottom: 30px;
-    }
-
-    .text-section p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
-    
-    .video-trio-row {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px;
-      margin-top: 50px;
-      flex-wrap: wrap; /* 줄바꿈 허용 (작은 화면 대응) */
-    }
-
-    .video-trio-row video {
-      width: auto;
-      height: 500px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-
-
-
-    @media (max-width: 768px) {
-      .hero {
-        height: 50vh;
-      }
-
-      .hero-text h1 {
-        font-size: 1.8rem;
-      }
-
-      .hero-text p {
-        font-size: 1rem;
-      }
-
-      .split-description {
-        flex-direction: column;
-        padding: 30px 5%;
-        gap: 30px;
-      }
-
-      .right-block video {
-        width: 100%;
-        height: auto;
-      }
-
-      .video-row video,
-      .video-trio-row video {
-        width: 100%;
-        max-width: none;
-        height: auto;
-      }
-
-      .text-section h2 {
-        font-size: 1.5rem;
-      }
-
-      .text-section {
-        padding: 0 16px;
-      }
-
-      .video-trio-row {
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .video-trio-row video {
-        height: auto;
-      }
-
-      .back-link {
-        font-size: 0.85rem;
-        margin: 20px;
-      }
-    }
-
-
   </style>
 </head>
 <body>
 
   <a href="main.html#works" class="back-link">← Back to Portfolio</a>
 
+  <!-- Hero -->
   <section class="hero">
     <video autoplay muted loop playsinline>
-      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Society of the Spectacle_Compressor.mp4" type="video/mp4">
-    </video> <!-- ✅ video 태그 닫힘 -->
-
+      <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Society of the Spectacle_Compressor.mp4" type="video/mp4" />
+    </video>
     <div class="hero-text">
-      <h1>Superimposing the Contemporary Global Context<br>-WIP-</h1>
+      <h1>Transfigured Cities</h1>
       <p>AI Technology, Design, Experimental Work, 2025</p>
     </div>
   </section>
+
+  <!-- Intro split -->
   <section class="split-description">
     <div class="left-block">
-      <h2>Superimposing the Contemporary Global Context<br>(Work in Progress)</h2>
-      <p class="date">AI Technology<br>Design<br>Experimental Work<br>2025<br><br>
-        TouchDesigner, AI, Adobe Creative, Python, Unreal Engine, Blender, Rhino, Figma
+      <h2>Transfigured Cities</h2>
+      <p class="date">
+        AI Technology<br/>Design<br/>Experimental Work<br/>2025<br/><br/>
+        TouchDesigner, AI, Adobe Creative, Python, Unreal Engine, Blender, Rhino, Figma, AR
       </p>
     </div>
     <div class="right-block">
-      <video autoplay muted loop playsinline style="width: 100%; max-width: 800px; border-radius: 8px;">
-        <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/TV_1.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline>
+        <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/TV_1.mp4" type="video/mp4" />
       </video>
     </div>
   </section>
+
+  <!-- ★ 5개 한 줄(크기 ↑, 간격 ↓, 비율 유지) -->
   <section class="video-grid-section">
-    <div class="video-row">
-      <video autoplay muted loop playsinline controls>
-        <source src= "https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Test.mov" type="video/mp4" />
-      </video>
-      <video autoplay muted loop playsinline>
-        <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/0605.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline>
-        <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/glitch_final_1.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="video-row">
-      <video autoplay muted loop playsinline>
-        <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Real_intro.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline>
-        <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video4.mp4" type="video/mp4">
-      </video>
+    <div class="video-five">
+      <div class="slot">
+        <video autoplay muted loop playsinline>
+          <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Test.mov" type="video/mp4" />
+        </video>
+      </div>
+      <div class="slot">
+        <video autoplay muted loop playsinline>
+          <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/0605.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="slot">
+        <video autoplay muted loop playsinline>
+          <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/glitch_final_1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="slot">
+        <video autoplay muted loop playsinline>
+          <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Real_intro.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="slot">
+        <video autoplay muted loop playsinline>
+          <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Video4.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
   </section>
+
+  <!-- Text + “첫번째 사진” UI -->
   <section class="text-section">
     <h2>City in Three Acts : Aesthetic, Media, Machine</h2>
-    <hr>
+    <hr/>
     <p>
-      <strong>Conception, Aesthetic Structures</strong><br>Conception is the initial vision that shapes the aesthetic structures of a city, guiding how urban spaces are perceived and experienced through their visual and sensory elements.
+      <strong>Conception, Aesthetic Structures</strong><br/>
+      Conception is the initial vision that shapes the aesthetic structures of a city, guiding how urban spaces are perceived and experienced through their visual and sensory elements.
     </p>
     <p>
-      <strong>Representation, Urban Landscape</strong><br>Representation transforms these aesthetic structures into a tangible urban landscape, where images, media, and societal influences define the way we interact with and understand the city.
+      <strong>Representation, Urban Landscape</strong><br/>
+      Representation transforms these aesthetic structures into a tangible urban landscape, where images, media, and societal influences define the way we interact with and understand the city.
     </p>
     <p>
-      <strong>Construction, Artificial Intelligence</strong><br>Construction, supported by artificial intelligence, allows for the dynamic redesign and reimagination of urban landscapes, enabling cities to evolve and adapt to new cultural and technological influences.
+      <strong>Construction, Artificial Intelligence</strong><br/>
+      Construction, supported by artificial intelligence, allows for the dynamic redesign and reimagination of urban landscapes, enabling cities to evolve and adapt to new cultural and technological influences.
     </p>
-    <div style="text-align: center; margin-top: -10px;">
-      <video autoplay muted loop playsinline style="width: auto; max-width: 80%; height: auto; border-radius: 8px;">
-        <source src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/unify.mp4" type="video/mp4">
-      </video>
-    </div>
 
-    <!-- 단일 중앙 비디오 아래에 3개 가로 배열 -->
-    <div class="video-trio-row">
-      <video autoplay muted loop playsinline>
-        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/Video1.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline>
-        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/Video2.mp4" type="video/mp4">
-      </video>
-      <video autoplay muted loop playsinline>
-        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/Video3.mp4" type="video/mp4">
-      </video>
+    <div class="act-media">
+      <div class="act-toolbar">
+        <h3>Video Selected</h3>
+        <label for="act-select">Select Concept</label>
+        <select id="act-select">
+          <option value="conception"
+                  data-video="https://wooksungl.github.io/wooks-portfolio/image/project4/Video1.mp4"
+                  data-img1="https://wooksungl.github.io/theinternet/images/frame_0007.png"
+                  data-img2="https://wooksungl.github.io/theinternet/images/frame_007.png">
+            Conception
+          </option>
+          <option value="representation"
+                  data-video="https://wooksungl.github.io/wooks-portfolio/image/project4/Video2.mp4"
+                  data-img1="https://huggingface.co/datasets/Wooksung/Gaussian/resolve/main/frame_0073.png"
+                  data-img2="https://huggingface.co/datasets/Wooksung/Gaussian/resolve/main/frame_0075.png">
+            Representation
+          </option>
+          <option value="construction"
+                  data-video="https://wooksungl.github.io/wooks-portfolio/image/project4/Video3.mp4"
+                  data-img1="https://huggingface.co/datasets/Wooksung/Gaussian/resolve/main/frame_0080.png"
+                  data-img2="https://huggingface.co/datasets/Wooksung/Gaussian/resolve/main/frame_0009.png">
+            Construction
+          </option>
+        </select>
+      </div>
+
+      <div class="act-layout">
+        <div class="act-thumbs">
+          <img id="act-thumb-1" src="https://wooksungl.github.io/theinternet/images/frame_0007.png" alt="thumb 1" />
+          <img id="act-thumb-2" src="https://wooksungl.github.io/theinternet/images/frame_007.png"  alt="thumb 2" />
+        </div>
+
+        <div class="act-video-wrap">
+          <video id="act-video" controls autoplay muted loop playsinline>
+            <source id="act-video-source"
+                    src="https://wooksungl.github.io/wooks-portfolio/image/project4/Video1.mp4"
+                    type="video/mp4" />
+          </video>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="text-section">
     <h2>Synthetic Spectacle: Collaging Urban Experience Through AI</h2>
-    <hr>
+    <hr/>
     <p>
-      This project, grounded in Guy Debord’s theory of the spectacle, uses AI to digitally overlay Seoul’s urban imagery onto Los Angeles. It visualizes how media and consumer culture distort urban experience, transforming cities into branded, image-driven spectacles detached from direct reality.
+      This project, grounded in Guy Debord’s theory of the spectacle, uses AI to digitally overlay Seoul’s urban imagery onto Los Angeles.
+      It visualizes how media and consumer culture distort urban experience, transforming cities into branded, image-driven spectacles detached from direct reality.
     </p>
   </section>
 
-  <section class="video-row">
-    <figure style="text-align: center;">
+  <!-- ▼▼▼  여기가 ‘사라졌다’고 한 하단 영역 복구  ▼▼▼ -->
+  <section class="video-row wide">
+    <figure>
       <video autoplay muted loop playsinline controls>
-        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0312.mp4" type="video/mp4">
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0312.mp4" type="video/mp4" />
       </video>
-      <figcaption style="margin-top: 10px; color: #aaa;">Recording video of downtown Los Angeles</figcaption>
+      <figcaption>Recording video of downtown Los Angeles</figcaption>
     </figure>
-    <figure style="text-align: center;">
+    <figure>
       <video autoplay muted loop playsinline controls>
-        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0628.mp4" type="video/mp4">
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0628.mp4" type="video/mp4" />
       </video>
-       <figcaption style="margin-top: 10px; color: #aaa;">AI genertaed video</figcaption>
+      <figcaption>AI generated video</figcaption>
     </figure>
   </section>
 
-  <div style="text-align: center; margin-top: 30px;">
-    <figure>
-      <video autoplay muted loop playsinline controls style="width: 100%; max-width: 750px; border-radius: 8px;">
-        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0619.mp4" type="video/mp4">
+  <div class="centered-vid">
+    <figure style="margin:0;">
+      <video autoplay muted loop playsinline controls>
+        <source src="https://wooksungl.github.io/wooks-portfolio/image/project4/0619.mp4" type="video/mp4" />
       </video>
-      <figcaption style="margin-top: 10px; color: #aaa;">3D Gaussian Splatting</figcaption>
+      <figcaption>3D Gaussian Splatting</figcaption>
     </figure>
   </div>
+  <!-- ▲▲▲  복구 끝  ▲▲▲ -->
+
+  <footer>© Wooksung Lee — All rights reserved.</footer>
 
 
+  <script>
+    /* 선택 변경 시 소스만 교체 (크기/정렬은 CSS가 관리) */
+    (function(){
+      const sel   = document.getElementById('act-select');
+      const vid   = document.getElementById('act-video');
+      const srcEl = document.getElementById('act-video-source');
+      const t1    = document.getElementById('act-thumb-1');
+      const t2    = document.getElementById('act-thumb-2');
 
-    <footer>
-      © Wooksung Lee — All rights reserved.
-    </footer>
+      function apply(){
+        const opt = sel.options[sel.selectedIndex];
+        const v   = opt.getAttribute('data-video');
+        const i1  = opt.getAttribute('data-img1');
+        const i2  = opt.getAttribute('data-img2');
 
+        if (v && srcEl){
+          try { vid.pause(); } catch(e){}
+          srcEl.src = v;
+          vid.load();
+          vid.play().catch(()=>{});
+        }
+        if (i1) t1.src = i1;
+        if (i2) t2.src = i2;
+      }
+      sel.addEventListener('change', apply);
+      apply();
+    })();
+  </script>
 </body>
 </html>
