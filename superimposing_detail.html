@@ -187,19 +187,41 @@
 
     /* ===== Superimposed DTLA section ===== */
     .super-section{
-      padding: 32px var(--superPadX) 24px;
+      padding: 48px var(--superPadX) 24px;
     }
+
     .super-blurb{
-      max-width: 1000px;
-      margin: 0 auto 18px;
+      max-width: 1200px;       /* .text-section 과 동일 폭 */
+      margin: 5px auto 24px;   /* 위아래 여백 */
+      padding: 0 20px;         /* 좌우 안전 여백 */
       color: #ccc;
       line-height: 1.75;
     }
+
+    /* 섹션 제목: .text-section h2 와 톤을 맞춤 */
     .super-blurb h3{
-      margin: 0 0 10px;
-      font-size: 1.4rem;
+      margin: 0 0 14px;
+      font-size: 2rem;         /* .text-section h2 = 2rem */
       font-weight: 700;
+      line-height: 1.25;
       color: #f0f0f0;
+    }
+
+    /* 얇은 구분선(두 번째 스크린샷의 hr 느낌) */
+    .super-blurb h3::after{
+      content: "";
+      display: block;
+      height: 1px;
+      background: #777;
+      margin-top: 7px;
+    }
+
+    /* 본문 문단: .text-section p 와 동일 톤 */
+    .super-blurb p{
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #ccc;
+      margin: 28px 0 0;
     }
 
     /* 메인 비디오 (M1) – 가로 100%, 반응형 */
