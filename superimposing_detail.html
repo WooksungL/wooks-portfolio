@@ -25,6 +25,11 @@
 
       --arH: 520px;         /* 여기 숫자만 조절하면 됨: 220~300px 추천 */
 
+      --modelMax: 1400px;
+      --modelGap: 18px;
+      --portraitH: 560px;   /* 세로 사진 높이 */
+      --landH: 360px;       /* 가로 사진 높이 */
+
     }
 
     *{ box-sizing:border-box; }
@@ -344,6 +349,57 @@
       box-shadow: 0 10px 24px rgba(0,0,0,.30);
     }
 
+    .model-section{
+      padding: 36px var(--superPadX) 8px;
+    }
+
+    .model-blurb{
+      max-width: 1000px;
+      margin: 0 auto 22px;
+      color: #ccc;
+      line-height: 1.75;
+    }
+
+    .model-blurb h3{
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f0f0f0;
+    }
+
+    .model-row{
+      max-width: min(var(--modelMax), 96vw);
+      margin: 0 auto 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--modelGap);
+    }
+
+    .model-row figure{ margin: 0; }
+
+    .model-row img{
+      width: 100%;
+      height: auto;              /* ← 고정 높이 제거 */
+      display: block;
+      background: #000;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.30);
+      object-fit: contain;       /* ← crop 없이 전체가 보이도록 */
+    }
+
+    .model-row.portraits img,
+    .model-row.landscapes img{
+      height: auto;              /* ← portraitH/landH 적용하지 않음 */
+    }
+
+    @media (max-width: 980px){
+      .model-row{ grid-template-columns: 1fr; }
+      :root{
+        --portraitH: 460px;
+        --landH: 280px;
+      }
+    }
+
     /* 모바일에서는 1열로 */
     @media (max-width:700px){
       .afterimage-videos{
@@ -627,9 +683,37 @@
           autoplay muted loop playsinline controls></video>
   </section>
 
+  <section class="model-section">
+    <div class="super-blurb tail">
+      <h3>Hybrid Façade Model</h3>
+      <p>
+        By superimposing façades from diverse cultures onto an existing building in Downtown Los Angeles, the work creates a hybrid and multilayered urban form rather than a singular identity.
+        Through this process, the work reframes urban architecture not as a mere replication of reality, but as an experimental reconstruction shaped by cultural fragments.
+      </p>
+    </div>
+
+    <!-- 세로 2장 (한 줄) -->
+    <div class="model-row portraits">
+      <figure>
+        <img src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Model1.png" alt="Hybrid Façade model — portrait view 01">
+      </figure>
+      <figure>
+        <img src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Model2.png" alt="Hybrid Façade model — portrait view 02">
+      </figure>
+    </div>
+
+    <!-- 가로 2장 (그 아래 한 줄) -->
+    <div class="model-row landscapes">
+      <figure>
+        <img src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Model3.png" alt="Hybrid Façade model — landscape view 01">
+      </figure>
+      <figure>
+        <img src="https://huggingface.co/datasets/Wooksung/video-and-image/resolve/main/Model4.png" alt="Hybrid Façade model — landscape view 02">
+      </figure>
+    </div>
+  </section>
 
   <footer>© Wooksung Lee — All rights reserved.</footer>
-
 
   <script>
     /* 선택 변경 시 소스만 교체 (크기/정렬은 CSS가 관리) */
